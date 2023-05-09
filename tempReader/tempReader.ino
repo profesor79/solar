@@ -8,7 +8,7 @@
 OneWire ourWire(7);
 
 
-//etherente
+//etherent
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xAA, 0xFE, 0xAA
 };
@@ -110,5 +110,5 @@ void loop() {
 void SendReadTempCommand(){
 
 
-  
+
 }
