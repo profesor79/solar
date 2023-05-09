@@ -31,7 +31,7 @@ unsigned long myTime;
 // time management section
 // as we don't use delay function
 // to be able to switch off pump as fast as possible
-unsigned long ;
+unsigned long _lastSensorCheck;
 
 
 
