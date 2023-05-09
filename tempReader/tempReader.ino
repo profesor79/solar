@@ -30,6 +30,7 @@ float roofToTankTemp = -127;
 float roof1ZoneTemp = -127;
 float roof2ZoneTemp = -127;
 float ambientTemp = -127;
+float switchBoxTemp = -127;
 
 
 
