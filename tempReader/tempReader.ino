@@ -28,7 +28,12 @@ DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8,
 float tankTemp = -127;
 float roofToTankTemp = -127;
 float roof1ZoneTemp = -127;
-float roof1ZoneTemp = -127;
+float roof2ZoneTemp = -127;
+
+
+
+
+
 
 unsigned long myTime;
 // time management section
