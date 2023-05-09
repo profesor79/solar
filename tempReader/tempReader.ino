@@ -107,4 +107,8 @@ void loop() {
 }
 
 
+void SendReadTempCommand(){
 
+
+  
+}
