@@ -62,6 +62,7 @@ void setup() {
   Serial.println();
   ourWire.reset_search();
 
+  // setting resolution to 9 bits as this helps in a star topology
   sensors.setResolution(tankTempAddres, 9);
   sensors.setResolution(fromRoofToTankAddress, 9);
 }
