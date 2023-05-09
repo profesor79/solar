@@ -38,9 +38,7 @@ void setup() {
 
   // start the Ethernet
   Ethernet.begin(mac, deviceIp);
-    // Check for Ethernet hardware present
   
-
   // start UDP
   Udp.begin(8888);
 
