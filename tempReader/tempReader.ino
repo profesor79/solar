@@ -29,6 +29,8 @@ DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8,
 
 unsigned long myTime;
 // time management section
+// as we don't use delay function
+// to be 
 
 
 void setup() {
