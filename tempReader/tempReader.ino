@@ -45,6 +45,8 @@ unsigned long _lastSensorCheckTime;
 unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
+// state section
+bool running = false;
 
 
 void setup() {
