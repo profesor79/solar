@@ -27,7 +27,8 @@ DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8,
 //DeviceAddress address3 = {0x28, 0xFF, 0x23, 0x19, 0x1, 0x16, 0x4, 0xD9};//dirección del sensor 3
 float tankTemp = -127;
 float roofToTankTemp = -127;
-float roofToTankTemp = -127;
+float roof1ZoneTemp = -127;
+float roof1ZoneTemp = -127;
 
 unsigned long myTime;
 // time management section
