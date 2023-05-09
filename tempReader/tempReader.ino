@@ -32,7 +32,8 @@ unsigned long myTime;
 // as we don't use delay function
 // to be able to switch off pump as fast as possible
 unsigned long _lastSensorCheckTime;
-unsigned long _lastSTime;
+unsigned long _lastSolarPumpRunTime;
+unsigned long _lastWaterPumpRunTime;
 
 
 
