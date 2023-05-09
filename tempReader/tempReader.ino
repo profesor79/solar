@@ -46,7 +46,8 @@ unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
 // state section
-bool running = false;
+bool _solarPumpRunning = false;
+bool _waterPumpRunning = false;
 
 
 void setup() {
