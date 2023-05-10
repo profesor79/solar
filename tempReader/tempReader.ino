@@ -107,7 +107,7 @@ void loop() {
 void GetTemperatures() {
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
     if (!_temperatureWaseReadInThisCycle) {
-      tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
+      tankTemp = sensors.getTempC(tankTempAddres);
       roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       _temperatureWaseReadInThisCycle = true;
