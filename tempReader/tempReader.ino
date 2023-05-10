@@ -102,7 +102,7 @@ void loop() {
   delay(1000);
   //float temp2= sensors.getTempC(address2);//Se obtiene la temperatura en °C del sensor 2
   //float temp3= sensors.getTempC(address3);//Se obtiene la temperatura en °C del sensor 3
-  Serial.println(myTime);  // prints time since program started
+  
   Serial.print("TankTemp = ");
   Serial.print(tankTemp);
   Serial.print(", RoofToTank = ");
