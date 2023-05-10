@@ -65,8 +65,6 @@ void setup() {
 
   // start UDP
   Udp.begin(8888);
-
-
   sensors.begin();  //Se inicia el sensor
 
   // this is to display temperature sensors addresses
