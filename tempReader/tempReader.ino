@@ -34,7 +34,7 @@ float switchBoxTemp = -127;
 
 
 
-unsigned long myTime;
+
 unsigned long currentMillis = 0;    // stores the value of millis() in each iteration of loop()
 // time management section
 // as we don't use delay function
