@@ -143,6 +143,7 @@ void SendUdpReport() {
       Udp.beginPacket(destinationIP, 8888);
       Udp.write(repBuff);
       Udp.endPacket();
+      _udpSent = true;
     
   }
 }
