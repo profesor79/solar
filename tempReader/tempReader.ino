@@ -35,7 +35,7 @@ float switchBoxTemp = -127;
 
 
 
-unsigned long currentMillis = 0;    // stores the value of millis() in each iteration of loop()
+unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
 // time management section
 // as we don't use delay function
 // to be able to switch off pump as fast as possible
@@ -71,7 +71,7 @@ void setup() {
   // this is to display temperature sensors addresses
   byte addr[8];
   Serial.println("Getting addresses:");
-  while (ourWire.search(addr)) {    
+  while (ourWire.search(addr)) {
     Serial.print("DeviceAddress da = {");
     for (int i = 0; i < 8; i++) {
       Serial.print("0x");
@@ -90,20 +90,20 @@ void setup() {
 }
 
 void loop() {
-  currentMillis = millis();   // capture the latest value of millis()
-  
-  
+  currentMillis = millis();  // capture the latest value of millis()
+
+
   sensors.requestTemperatures();
 
   Serial.print("Time: ");
-  
-  
+
+
   float tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
   float fromRootToTank = sensors.getTempC(fromRoofToTankAddress);
   delay(1000);
   //float temp2= sensors.getTempC(address2);//Se obtiene la temperatura en °C del sensor 2
   //float temp3= sensors.getTempC(address3);//Se obtiene la temperatura en °C del sensor 3
-  
+
   Serial.print("TankTemp = ");
   Serial.print(tankTemp);
   Serial.print(", RoofToTank = ");
@@ -128,15 +128,11 @@ void loop() {
 }
 
 
-void SendReadTempCommand(){
-if(currentMillis<_lastSensorCheckTime+SensorCheckInterval){
-  sensors.requestTemperatures();
+void SendReadTempCommand() {
+  if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
+    sensors.requestTemperatures();
+  }
 }
-  
-
 }
-void FlipFlopPumps()
-{
-
-
+void FlipFlopPumps() {
 }
