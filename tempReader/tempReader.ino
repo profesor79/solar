@@ -110,6 +110,7 @@ void GetTemperatures() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
     Serial.println("check for cycle");
     if (!_temperatureWaseReadInThisCycle) {
+      _lastSensorCheckTime = currentMillis;
       Serial.println("getting temperautres");
       tankTemp = sensors.getTempC(tankTempAddres);
       roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
