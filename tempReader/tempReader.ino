@@ -68,8 +68,7 @@ void setup() {
   // this is to display temperature sensors addresses
   byte addr[8];
   Serial.println("Getting addresses:");
-  while (ourWire.search(addr)) {
-    numberOfSensors++;
+  while (ourWire.search(addr)) {    
     Serial.print("DeviceAddress da = {");
     for (int i = 0; i < 8; i++) {
       Serial.print("0x");
