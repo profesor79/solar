@@ -112,28 +112,29 @@ void GetTemperatures() {
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       _temperatureWaseReadInThisCycle = true;
     }
-  }}
-  void SendUdpReport() {
-    String buf;
-    buf += F("TankTemp: ");
-    buf += String(tankTemp, 2);
-    buf += F(", RoofToTank: ");
-    buf += String(roofToTankTemp, 2);
-    char repBuff[buf.length()];
-    buf.toCharArray(repBuff, buf.length());
-
-    Udp.beginPacket(destinationIP, 8888);
-    Udp.write(repBuff);
-    Udp.endPacket();
   }
+}
+void SendUdpReport() {
+  String buf;
+  buf += F("TankTemp: ");
+  buf += String(tankTemp, 2);
+  buf += F(", RoofToTank: ");
+  buf += String(roofToTankTemp, 2);
+  char repBuff[buf.length()];
+  buf.toCharArray(repBuff, buf.length());
 
-  void SendReadTempCommand() {
-    if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
-      sensors.requestTemperatures();
-      _temperatureWaseReadInThisCycle = false;
-      _lastSensorsRequestTime = currentMillis;
-    }
-  }
+  Udp.beginPacket(destinationIP, 8888);
+  Udp.write(repBuff);
+  Udp.endPacket();
+}
 
-  void FlipFlopPumps() {
+void SendReadTempCommand() {
+  if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
+    sensors.requestTemperatures();
+    _temperatureWaseReadInThisCycle = false;
+    _lastSensorsRequestTime = currentMillis;
   }
+}
+
+void FlipFlopPumps() {
+}
