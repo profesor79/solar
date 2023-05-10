@@ -46,7 +46,7 @@ unsigned long _lastSensorsRequestTime;
 unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
-const unsigned long 
+const unsigned long SensorCheckInterval = 5000;
 
 // state section
 bool _solarPumpRunning = false;
