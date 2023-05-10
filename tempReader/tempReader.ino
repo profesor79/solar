@@ -53,7 +53,7 @@ const unsigned long SensorWaitInterval = 1500;
 // state section
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
-bool _temperatureWaseReadInThisCycle = ;
+bool _temperatureWaseReadInThisCycle = true;
 
 
 void setup() {  
@@ -99,6 +99,7 @@ void loop() {
 }
 void GetTemperatures(){
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
+    if
   tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
   roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
   roof1ZoneTemp = sensors.getTempC(zone1Adress);  
