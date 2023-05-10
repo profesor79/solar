@@ -32,7 +32,16 @@ unsigned int destinationPort = 8888;
 // temp sensors
 DallasTemperature sensors(&ourWire);                                               //Se declara una variable u objeto para nuestro sensor
 DeviceAddress tankTempAddres = { 0x28, 0x2A, 0xB7, 0xFE, 0xB0, 0x22, 0x8, 0x33 };  //dirección del sensor 1
-DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8, 0xDE };
+DeviceAddress fromRoofToTankAddress = {
+  0x28,
+  0xB7,
+  0xA4,
+  0xE6,
+  0xB0,
+  0x22,
+  0x8,
+  0xDE,
+};
 DeviceAddress zone1Adress = {
   0x28,
   0x48,
