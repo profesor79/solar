@@ -128,7 +128,9 @@ void loop() {
 
 
 void SendReadTempCommand(){
-if(currentMillis<)
+if(currentMillis<_lastSensorCheckTime+SensorCheckInterval){
+  
+}
   sensors.requestTemperatures();
 
 }
