@@ -118,6 +118,7 @@ String buf;
 void SendReadTempCommand() {
   if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
     sensors.requestTemperatures();
+    _lastSensorsRequestTime
   }
 }
 
