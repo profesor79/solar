@@ -43,7 +43,7 @@ float roof2ZoneTemp = -127;
 float ambientTemp = -127;
 float switchBoxTemp = -127;
 
-short temp
+const short tempBithDepth = 12;
 
 
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
