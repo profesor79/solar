@@ -140,9 +140,10 @@ void SendUdpReport() {
 }
 
 void SendReadTempCommand() {
-  if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
+  if (currentMillis < _lastSensorsRequestTime + SensorCheckInterval) {
     sensors.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
+
     _lastSensorsRequestTime = currentMillis;
   }
 }
