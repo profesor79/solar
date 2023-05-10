@@ -118,6 +118,7 @@ void GetTemperatures() {
       roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       _temperatureWaseReadInThisCycle = true;
+      _udpSent = fase;
     }
   }
 }
