@@ -91,8 +91,8 @@ void loop() {
   currentMillis = millis();  // capture the latest value of millis()
 
 
-  float tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
-  float fromRootToTank = sensors.getTempC(fromRoofToTankAddress);
+  tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
+   = sensors.getTempC(fromRoofToTankAddress);
   
   SendReadTempCommand();
 
