@@ -124,7 +124,7 @@ void SendUdpReport() {
   if(_udpSent){
     return;
   }
-  Serial.println("udp");
+
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
      Serial.println("udp send");
       String buf;
@@ -148,7 +148,7 @@ void SendUdpReport() {
 }
 
 void SendReadTempCommand() {
-  Serial.println("srt");
+ 
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
     sensors.requestTemperatures();
