@@ -7,6 +7,12 @@
 
 // define pins
 short tempSensorsPin = 7;
+short Pin = ;
+short Pin = ;
+short Pin = ;
+short Pin = ;
+short Pin = ;
+short Pin = ;
 
 //onewire init
 OneWire ourWire(tempSensorsPin);
