@@ -102,8 +102,6 @@ void loop() {
   SendReadTempCommand();
   GetTemperatures();
   SendUdpReport();
-
-
   delay(15000);
 }
 void GetTemperatures() {
