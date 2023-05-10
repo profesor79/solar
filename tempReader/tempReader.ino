@@ -4,6 +4,10 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
+
+// define pins
+int tempSensorsPin = 7;
+
 //onewire init
 OneWire ourWire(7);
 
