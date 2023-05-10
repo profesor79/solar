@@ -95,7 +95,8 @@ void loop() {
 
   float tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
   float fromRootToTank = sensors.getTempC(fromRoofToTankAddress);
-SendGetTempRequest();
+  
+  SendReadTempCommand();
 
 
   Serial.print("TankTemp = ");
