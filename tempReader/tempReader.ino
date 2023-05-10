@@ -99,10 +99,6 @@ void loop() {
   SendReadTempCommand();
 
 
-  Serial.print("TankTemp = ");
-  Serial.print(tankTemp);
-  Serial.print(", RoofToTank = ");
-  Serial.println(fromRootToTank);
 
 SendUdpReport();
 
