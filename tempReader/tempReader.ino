@@ -142,8 +142,9 @@ void SendUdpReport() {
 }
 
 void SendReadTempCommand() {
+  Serial.println("srt");
   if (currentMillis < _lastSensorsRequestTime + SensorCheckInterval) {
-    Serial.println("");
+    Serial.println("sending get temp request");
     sensors.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
 
