@@ -121,7 +121,7 @@ void GetTemperatures() {
 }
 void SendUdpReport() {
 
-  if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
+  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
     if (!_temperatureWaseReadInThisCycle) {
       String buf;
       buf += F("TankTemp: ");
