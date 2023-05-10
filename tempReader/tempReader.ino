@@ -106,6 +106,7 @@ void loop() {
   
 }
 void GetTemperatures() {
+  Serial.println("GT");
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
     if (!_temperatureWaseReadInThisCycle) {
       tankTemp = sensors.getTempC(tankTempAddres);
