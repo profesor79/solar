@@ -89,10 +89,8 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
-
-  tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
-  roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
-  roof1ZoneTemp = sensors.getTempC(zone1Adress);  
+GetTemperatures();
+  
   SendReadTempCommand();
 
 
