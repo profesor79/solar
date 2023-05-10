@@ -103,7 +103,7 @@ void loop() {
   SendReadTempCommand();
   GetTemperatures();
   SendUdpReport();
-  delay(15000);
+  delay(500);
 }
 void GetTemperatures() {
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
