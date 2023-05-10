@@ -130,8 +130,7 @@ void SendUdpReport() {
       buf += F(", RoofToTank: ");      
       buf += String(roofToTankTemp, 2);
       buf += F("Zone1Temp: ");
-      buf += String(tankTemp, 2);
-      
+      buf += String(roof1ZoneTemp, 2);      
       buf += F(", last read: ");
       buf += String(_lastSensorCheckTime);
       char repBuff[buf.length()];
