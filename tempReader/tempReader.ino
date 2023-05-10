@@ -94,9 +94,9 @@ void setup() {
   ourWire.reset_search();
 
   // setting resolution to 9 bits as this helps in a star topology
-  sensors.setResolution(tankTempAddres, 9);
-  sensors.setResolution(fromRoofToTankAddress, 9);
-  sensors.setResolution(zone1Adress, 9);
+  sensors.setResolution(tankTempAddres, tempBithDepth);
+  sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
+  sensors.setResolution(zone1Adress, tempBithDepth);
 }
 
 void loop() {
