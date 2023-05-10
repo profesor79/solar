@@ -45,6 +45,7 @@ unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
 const unsigned long SensorCheckInterval = 5000;
+const unsigned long SensorCheckInterval = 5000;
 
 
 
@@ -129,9 +130,9 @@ void loop() {
 
 void SendReadTempCommand(){
 if(currentMillis<_lastSensorCheckTime+SensorCheckInterval){
-  
-}
   sensors.requestTemperatures();
+}
+  
 
 }
 void FlipFlopPumps()
