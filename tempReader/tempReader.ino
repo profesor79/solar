@@ -55,9 +55,7 @@ bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
 
 
-void setup() {
-
-  // start the Ethernet
+void setup() {  
   Serial.begin(9600);
 
   // start the Ethernet
