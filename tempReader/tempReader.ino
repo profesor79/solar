@@ -93,16 +93,10 @@ void loop() {
   currentMillis = millis();  // capture the latest value of millis()
 
 
-  sensors.requestTemperatures();
-
-  Serial.print("Time: ");
-
-
   float tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
   float fromRootToTank = sensors.getTempC(fromRoofToTankAddress);
-  delay(1000);
-  //float temp2= sensors.getTempC(address2);//Se obtiene la temperatura en °C del sensor 2
-  //float temp3= sensors.getTempC(address3);//Se obtiene la temperatura en °C del sensor 3
+
+
 
   Serial.print("TankTemp = ");
   Serial.print(tankTemp);
