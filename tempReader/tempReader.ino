@@ -125,7 +125,7 @@ void SendReadTempCommand() {
   if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
     sensors.requestTemperatures();
     _temperatureWaseReadInThisCycle=false;
-    _lastSensorsRequestTime = 
+    _lastSensorsRequestTime = currentMillis;
   }
 }
 
