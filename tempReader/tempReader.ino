@@ -22,8 +22,17 @@ unsigned int destinationPort = 8888;
 // temp sensors
 DallasTemperature sensors(&ourWire);                                               //Se declara una variable u objeto para nuestro sensor
 DeviceAddress tankTempAddres = { 0x28, 0x2A, 0xB7, 0xFE, 0xB0, 0x22, 0x8, 0x33 };  //dirección del sensor 1
-DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8, 0xDE }; 
-DeviceAddress zone1Adress = {0x28, 0x48, 0xD9, 0xF8, 0xB0, 0x22, 0x9, 0x7A, };
+DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8, 0xDE };
+DeviceAddress zone1Adress = {
+  0x28,
+  0x48,
+  0xD9,
+  0xF8,
+  0xB0,
+  0x22,
+  0x9,
+  0x7A,
+};
 //DeviceAddress address2 = {0x28, 0xFF, 0x89, 0x3A, 0x1, 0x16, 0x4, 0xAF};//dirección del sensor 2
 //DeviceAddress address3 = {0x28, 0xFF, 0x23, 0x19, 0x1, 0x16, 0x4, 0xD9};//dirección del sensor 3
 float tankTemp = -127;
@@ -56,7 +65,7 @@ bool _waterPumpRunning = false;
 bool _temperatureWaseReadInThisCycle = true;
 
 
-void setup() {  
+void setup() {
   Serial.begin(9600);
 
   // start the Ethernet
@@ -91,43 +100,42 @@ void setup() {
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
   SendReadTempCommand();
-  GetTemperatures();    
+  GetTemperatures();
   SendUdpReport();
 
-  
+
   delay(15000);
 }
-void GetTemperatures(){
+void GetTemperatures() {
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
-    if(!_temperatureWaseReadInThisCycle){
-tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
-  roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
-  roof1ZoneTemp = sensors.getTempC(zone1Adress);  
-_temperatureWaseReadInThisCycle=true;
+    if (!_temperatureWaseReadInThisCycle) {
+      tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
+      roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
+      roof1ZoneTemp = sensors.getTempC(zone1Adress);
+      _temperatureWaseReadInThisCycle = true;
     }
-  
-}
-void SendUdpReport(){
-String buf;
-  buf += F("TankTemp: ");
-  buf += String(tankTemp, 2);
-  buf += F(", RoofToTank: ");
-  buf += String(roofToTankTemp, 2);
-  char repBuff[buf.length()];
-  buf.toCharArray(repBuff, buf.length());
+  }
+  void SendUdpReport() {
+    String buf;
+    buf += F("TankTemp: ");
+    buf += String(tankTemp, 2);
+    buf += F(", RoofToTank: ");
+    buf += String(roofToTankTemp, 2);
+    char repBuff[buf.length()];
+    buf.toCharArray(repBuff, buf.length());
 
-  Udp.beginPacket(destinationIP, 8888);
-  Udp.write(repBuff);
-  Udp.endPacket();
+    Udp.beginPacket(destinationIP, 8888);
+    Udp.write(repBuff);
+    Udp.endPacket();
   }
 
-void SendReadTempCommand() {
-  if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
-    sensors.requestTemperatures();
-    _temperatureWaseReadInThisCycle=false;
-    _lastSensorsRequestTime = currentMillis;
+  void SendReadTempCommand() {
+    if (currentMillis < _lastSensorCheckTime + SensorCheckInterval) {
+      sensors.requestTemperatures();
+      _temperatureWaseReadInThisCycle = false;
+      _lastSensorsRequestTime = currentMillis;
+    }
   }
-}
 
-void FlipFlopPumps() {
-}
+  void FlipFlopPumps() {
+  }
