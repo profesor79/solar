@@ -45,7 +45,7 @@ unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
 const unsigned long SensorCheckInterval = 5000;
-const unsigned long SensorCheckInterval = 5000;
+const unsigned long SensorWaitInterval = 1500;
 
 
 
