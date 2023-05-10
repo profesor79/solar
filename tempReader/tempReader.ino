@@ -8,10 +8,10 @@
 // define pins
 short tempSensorsPin = 7;
 short waterPumpMotorPin = 10;
-short waterPumpVoltagePin = ;
-short solarPumpMotorPin = ;
-short solarPumpVoltagePin = ;
-short waterCutOffPin = ;
+short waterPumpVoltagePin = 10;
+short solarPumpMotorPin = 10;
+short solarPumpVoltagePin = 10;
+short waterCutOffPin = 10;
 
 
 //onewire init
