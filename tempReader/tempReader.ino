@@ -112,7 +112,7 @@ void GetTemperatures() {
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       _temperatureWaseReadInThisCycle = true;
     }
-  }
+  }}
   void SendUdpReport() {
     String buf;
     buf += F("TankTemp: ");
