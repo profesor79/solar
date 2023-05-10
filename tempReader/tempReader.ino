@@ -11,8 +11,8 @@ short waterPumpMotorPin = 10;
 short waterPumpVoltagePin = ;
 short solarPumpMotorPin = ;
 short solarPumpVoltagePin = ;
-short solarPumpPin = ;
-short Pin = ;
+short waterCutOffPin = ;
+
 
 //onewire init
 OneWire ourWire(tempSensorsPin);
