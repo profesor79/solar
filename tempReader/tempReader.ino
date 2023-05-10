@@ -34,9 +34,6 @@ float switchBoxTemp = -127;
 
 
 
-
-
-
 unsigned long myTime;
 // time management section
 // as we don't use delay function
