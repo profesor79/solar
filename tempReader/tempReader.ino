@@ -89,10 +89,8 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
-GetTemperatures();
-  
+  GetTemperatures();  
   SendReadTempCommand();
-
 
 
 SendUdpReport();
