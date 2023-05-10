@@ -53,6 +53,7 @@ const unsigned long SensorWaitInterval = 1500;
 // state section
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
+bool _waterPumpRunning = false;
 
 
 void setup() {  
