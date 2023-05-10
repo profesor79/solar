@@ -120,9 +120,9 @@ void GetTemperatures() {
   }
 }
 void SendUdpReport() {
-
+  Serial.println("udp");
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
-     
+     Serial.println("udp send");
       String buf;
       buf += F("TankTemp: ");
       buf += String(tankTemp, 2);
