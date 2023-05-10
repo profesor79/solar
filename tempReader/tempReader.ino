@@ -111,7 +111,7 @@ String buf;
   buf += F("TankTemp: ");
   buf += String(tankTemp, 2);
   buf += F(", RoofToTank: ");
-  buf += String(fromRootToTank, 2);
+  buf += String(roofToTankTemp, 2);
   char repBuff[buf.length()];
   buf.toCharArray(repBuff, buf.length());
 
