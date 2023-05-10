@@ -92,7 +92,8 @@ void loop() {
 
 
   tankTemp = sensors.getTempC(tankTempAddres);  //Se obtiene la temperatura en °C del sensor 1
-   = sensors.getTempC(fromRoofToTankAddress);
+  roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
+  zo= sensors.getTempC(fromRoofToTankAddress);
   
   SendReadTempCommand();
 
