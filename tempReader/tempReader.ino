@@ -64,6 +64,7 @@ const unsigned long SensorWaitInterval = 1500;
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
 bool _temperatureWaseReadInThisCycle = true;
+bool _udpSent = false;
 
 
 void setup() {
