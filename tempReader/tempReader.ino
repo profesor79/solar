@@ -122,6 +122,7 @@ void SendUdpReport() {
   buf += F(", RoofToTank: ");
   buf += String(roofToTankTemp, 2);
   buf += F(", last read: ");
+  buf += String(millis, 2);
   char repBuff[buf.length()];
   buf.toCharArray(repBuff, buf.length());
 
