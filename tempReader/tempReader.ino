@@ -8,7 +8,7 @@
 // define pins
 short tempSensorsPin = 7;
 short waterPumpMotorPin = 10;
-short Pin = ;
+short waterPumpVoltagePin = ;
 short Pin = ;
 short Pin = ;
 short Pin = ;
