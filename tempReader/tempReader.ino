@@ -119,22 +119,21 @@ void SendUdpReport() {
 
   if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
     if (!_temperatureWaseReadInThisCycle) {
-   
+      String buf;
+      buf += F("TankTemp: ");
+      buf += String(tankTemp, 2);
+      buf += F(", RoofToTank: ");
+      buf += String(roofToTankTemp, 2);
+      buf += F(", last read: ");
+      buf += String(_lastSensorCheckTime);
+      char repBuff[buf.length()];
+      buf.toCharArray(repBuff, buf.length());
+
+      Udp.beginPacket(destinationIP, 8888);
+      Udp.write(repBuff);
+      Udp.endPacket();
     }
   }
-  String buf;
-  buf += F("TankTemp: ");
-  buf += String(tankTemp, 2);
-  buf += F(", RoofToTank: ");
-  buf += String(roofToTankTemp, 2);
-  buf += F(", last read: ");
-  buf += String(_lastSensorCheckTime);
-  char repBuff[buf.length()];
-  buf.toCharArray(repBuff, buf.length());
-
-  Udp.beginPacket(destinationIP, 8888);
-  Udp.write(repBuff);
-  Udp.endPacket();
 }
 
 void SendReadTempCommand() {
