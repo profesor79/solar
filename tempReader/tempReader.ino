@@ -107,7 +107,7 @@ void loop() {
 }
 void GetTemperatures() {
   Serial.println("GT");
-  if (currentMillis < _lastSensorCheckTime + SensorWaitInterval) {
+  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
     Serial.println("check for cycle");
     if (!_temperatureWaseReadInThisCycle) {
       Serial.println("getting temperautres");
