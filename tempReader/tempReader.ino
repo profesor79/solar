@@ -46,6 +46,8 @@ unsigned long _lastSensorsRequestTime;
 unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
+const unsigned long 
+
 // state section
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
