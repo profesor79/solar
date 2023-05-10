@@ -128,7 +128,7 @@ void loop() {
 
 
 void SendReadTempCommand(){
-
+if()
   sensors.requestTemperatures();
 
 }
