@@ -6,10 +6,10 @@
 
 
 // define pins
-int tempSensorsPin = 7;
+short tempSensorsPin = 7;
 
 //onewire init
-OneWire ourWire(7);
+OneWire ourWire(tempSensorsPin);
 
 
 //etherent
