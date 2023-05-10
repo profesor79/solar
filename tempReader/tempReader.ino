@@ -129,7 +129,7 @@ void SendUdpReport() {
       buf += String(tankTemp, 2);
       buf += F(", RoofToTank: ");      
       buf += String(roofToTankTemp, 2);
-      buf += F("TankTemp: ");
+      buf += F("Zone1Temp: ");
       buf += String(tankTemp, 2);
       
       buf += F(", last read: ");
