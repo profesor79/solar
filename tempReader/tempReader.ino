@@ -122,6 +122,9 @@ void GetTemperatures() {
   }
 }
 void SendUdpReport() {
+  if(_udpSent){
+    return;
+  }
   Serial.println("udp");
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
      Serial.println("udp send");
