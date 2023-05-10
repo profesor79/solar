@@ -128,6 +128,6 @@ void loop() {
 
 void SendReadTempCommand(){
 
-
+sensors.requestTemperatures();
 
 }
