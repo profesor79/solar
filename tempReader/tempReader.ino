@@ -106,7 +106,12 @@ void loop() {
 
 SendUdpReport();
 
-  String buf;
+  
+  delay(15000);
+}
+
+void SendUdpReport(){
+String buf;
   buf += F("TankTemp: ");
   buf += String(tankTemp, 2);
   buf += F(", RoofToTank: ");
@@ -119,12 +124,7 @@ SendUdpReport();
   Udp.endPacket();
 
 
-  delay(15000);
-}
 
-void SendUdpReport(){
-
-  
 }
 
 void SendReadTempCommand() {
