@@ -27,7 +27,10 @@ IPAddress destinationIP(192, 168, 1, 38);  // the remote IP address
 EthernetUDP Udp;
 unsigned int destinationPort = 8888;
 
-
+ long day = 86400000; // 86400000 milliseconds in a day
+ long hour = 3600000; // 3600000 milliseconds in an hour
+ long minute = 60000; // 60000 milliseconds in a minute
+ long second =  1000; // 1000 milliseconds in a second
 
 // temp sensors
 DallasTemperature sensors(&ourWire);                                                //Se declara una variable u objeto para nuestro sensor
