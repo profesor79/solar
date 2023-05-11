@@ -174,7 +174,8 @@ void SendUdpReport() {
  int seconds = (((timeNow % day) % hour) % minute) / second;
  
  String buf;
-    buf += F("D: ") + String(days,DEC);
+    buf += F("D: ") 
+    buf += String(days,DEC);
     buf += F(" h: ");
     buf += String(hours,DEC);
     buf += F(" m: ");    
