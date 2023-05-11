@@ -210,6 +210,14 @@ void SwitchOnWaterPump(){
   _solarPumpRunning = true;
 }
 
+
+void SwitchOffWaterPump(){
+  if(_waterPumpRunning)  {return;}
+
+  digitalWrite(solarPumpMotorPin, HIGH);
+  _solarPumpRunning = true;
+}
+
 void SendReadTempCommand() {
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
