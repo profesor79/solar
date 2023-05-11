@@ -174,7 +174,7 @@ void SendUdpReport() {
  float seconds = (((timeNow % day) % hour) % minute) / second;
  
  String buf;
-    buf += F("D: ") 
+    buf += F("D: ") ;
     buf += String(days,DEC);
     buf += F(" h: ");
     buf += String(hours,DEC);
@@ -194,7 +194,6 @@ void SendReadTempCommand() {
     Serial.println("sending get temp request");
     sensors.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
-
     _lastSensorsRequestTime = currentMillis;
   }
 }
