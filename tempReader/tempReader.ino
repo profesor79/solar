@@ -205,7 +205,7 @@ float seconds =0;
 
 void SwitchOnSolarPump(){
   if(_waterPumpRunning)  {return;}
-
+  
   digitalWrite(solarPumpMotorPin, HIGH);
   _solarPumpRunning = true;
 }
