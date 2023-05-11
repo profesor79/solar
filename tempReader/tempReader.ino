@@ -120,6 +120,7 @@ void GetTemperatures() {
       _lastSensorCheckTime = currentMillis;            
       roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
+      roof2ZoneTemp = sensors.getTempC(zone2Adress);
       tankTemp = sensors.getTempC(tankTempAddres);
       waterProofTest = sensors.getTempC(waterProofTestAddress);
       _temperatureWaseReadInThisCycle = true;
