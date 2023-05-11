@@ -37,11 +37,11 @@ DeviceAddress zone1Adress = { 0x28, 0x48, 0xD9, 0xF8, 0xB0, 0x22, 0x9, 0x7A };
 DeviceAddress waterProofTestAddress = {0x28, 0x51, 0x38, 0xDD, 0xB0, 0x22, 0x7, 0x4E, };
 //DeviceAddress address2 = {0x28, 0xFF, 0x89, 0x3A, 0x1, 0x16, 0x4, 0xAF};//dirección del sensor 2
 //DeviceAddress address3 = {0x28, 0xFF, 0x23, 0x19, 0x1, 0x16, 0x4, 0xD9};//dirección del sensor 3
-float tankTemp = -127;
-float roofToTankTemp = -127;
-float roof1ZoneTemp = -127;
-float roof2ZoneTemp = -127;
-float ambientTemp = -127;
+float tankTemp = -128;
+float roofToTankTemp = -128;
+float roof1ZoneTemp = -128;
+float roof2ZoneTemp = -128;
+float ambientTemp = -128;
 float switchBoxTemp = -127;
 float waterProofTest = -127;
 
