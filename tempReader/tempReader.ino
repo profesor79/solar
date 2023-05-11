@@ -12,6 +12,7 @@ const unsigned long FlushInterval = 60000;
 const unsigned long FlushTime = 10000;
 
 
+
 // define pins
 short tempSensorsPin = 7;
 short waterPumpMotorPin = 10;
