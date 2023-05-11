@@ -203,6 +203,8 @@ float seconds =0;
   
 }
 
+void 
+
 void SendReadTempCommand() {
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
