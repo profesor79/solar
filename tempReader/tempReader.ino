@@ -140,7 +140,7 @@ void GetTemperatures() {
   }
 }
 
-
+void SendStateMessage()){}
 void SendUdpReport() {
   if (_udpSent) {
     return;
