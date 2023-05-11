@@ -118,6 +118,7 @@ void GetTemperatures() {
       roofToTankTemp = sensors.getTempC(fromRoofToTankAddress);
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       tankTemp = sensors.getTempC(tankTempAddres);
+      waterProofTest = sensors.getTempC(const uint8_t *)
       _temperatureWaseReadInThisCycle = true;
       _udpSent = false;
     }
