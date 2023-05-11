@@ -10,7 +10,8 @@ const unsigned long SensorCheckInterval = 10000;
 const unsigned long SensorWaitInterval = 1500;
 const unsigned long FlushInterval = 60000;
 const unsigned long FlushTime = 10000;
-const float maxAverageTempDiffForFlush  = 115.00;
+const float maxAverageTempDiffForFlush  = 15.00;
+
 
 
 // define pins
