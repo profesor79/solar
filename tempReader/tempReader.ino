@@ -196,7 +196,7 @@ void SendUdpReport() {
     buf += String(hours,DEC);
     buf += F(" m: ");    
     buf += String(minutes,DEC);
-    buf += F(" m: ");
+    buf += F(" s: ");
     buf += String(seconds,DEC);
 
   
