@@ -133,7 +133,8 @@ void SendUdpReport() {
     return;
   }
 
-  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
+  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval ) {
+    
      Serial.println("udp send");
       String buf;
       buf += F("T: ");
@@ -145,8 +146,7 @@ void SendUdpReport() {
       buf += F(", Z1: ");
       buf += String(roof1ZoneTemp, 2);
       buf += F(", Z2: ");
-      buf += String(roof2ZoneTemp, 2);
-      
+      buf += String(roof2ZoneTemp, 2);      
       buf += F(", last read: ");
       buf += String(_lastSensorCheckTime);
       char repBuff[buf.length()];
