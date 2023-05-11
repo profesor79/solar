@@ -136,8 +136,10 @@ void SendUdpReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
      Serial.println("udp send");
       String buf;
-      buf += F("Tank: ");
-      buf += String(tank, 2);
+      buf += F("T: ");
+      buf += String(tankTemp, 2);
+      buf += F("TP: ");
+      buf += String(tank2Pump, 2);
       buf += F(", RoofTotank: ");      
       buf += String(roofToTankTemp, 2);
       buf += F(", Z1: ");
