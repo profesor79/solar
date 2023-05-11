@@ -42,8 +42,8 @@ float roofToTankTemp = -128;
 float roof1ZoneTemp = -128;
 float roof2ZoneTemp = -128;
 float ambientTemp = -128;
-float switchBoxTemp = -127;
-float waterProofTest = -127;
+float switchBoxTemp = -128;
+float waterProofTest = -128;
 
 const short tempBithDepth = 12;
 
