@@ -178,6 +178,9 @@ void SendUdpReport() {
  string GetTimeFromStart()
  {
  long timeNow = millis();
+    String buf;
+    buf += F("T: ");
+    buf += String(tankTemp, 2);
   
  int days = timeNow / day ;                                //number of days
  int hours = (timeNow % day) / hour;                       //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
@@ -185,7 +188,7 @@ void SendUdpReport() {
  int seconds = (((timeNow % day) % hour) % minute) / second;
  
   // digital clock display of current time
-  Serial.print(days,DEC);  
+  Serial.print();  
   printDigits(hours);  
   printDigits(minutes);
   printDigits(seconds);
