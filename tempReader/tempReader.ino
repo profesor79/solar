@@ -193,12 +193,7 @@ void SendUdpReport() {
     buf += String(minutes,DEC);
     buf += String(seconds,DEC);
 
-  // digital clock display of current time
-  Serial.print();  
-  printDigits(hours);  
-  printDigits(minutes);
-  printDigits(seconds);
-  Serial.println();  
+  
   return buf;
   
 }
