@@ -199,6 +199,7 @@ void SendUdpReport() {
   printDigits(minutes);
   printDigits(seconds);
   Serial.println();  
+  return buf;
   
 }
 void SendReadTempCommand() {
