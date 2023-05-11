@@ -190,7 +190,7 @@ void SendUdpReport() {
  
 
  String buf;
-    buf += F("d: ");
+    uf += F("d: ");
     buf += String(days,DEC);
     buf += String(hours,DEC);
     buf += String(minutes,DEC);
