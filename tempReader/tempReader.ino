@@ -201,7 +201,7 @@ void FlipFlopPumps() {
   _waterPumpRunning = (digitalRead(waterPumpVoltagePin) == LOW) ;
   if(_waterPumpRunning){
     digitalWrite(solarPumpMotorPin, LOW);
-
+_solarPumpRunning
 
   }
   
