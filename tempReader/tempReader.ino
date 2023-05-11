@@ -185,6 +185,14 @@ void SendUdpReport() {
  int minutes = ((timeNow % day) % hour) / minute ;         //and so on...
  int seconds = (((timeNow % day) % hour) % minute) / second;
  
+
+ String buf;
+    buf += F("d: ");
+    buf += String(days,DEC);
+    buf += String(hours,DEC);
+    buf += String(minutes,DEC);
+    buf += String(seconds,DEC);
+
   // digital clock display of current time
   Serial.print();  
   printDigits(hours);  
