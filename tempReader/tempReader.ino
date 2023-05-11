@@ -11,7 +11,9 @@ const unsigned long SensorWaitInterval = 1500;
 const unsigned long FlushInterval = 60000;
 const unsigned long FlushTime = 10000;
 const float mivAverageTempDiffForFlush  = 5.00;
-const float tempDiffToStartWaterPump
+const float tempDiffToStartWaterPump = 12.00;
+const float tempDiffToStartWaterPump = 3.00;
+
 
 
 // define pins
