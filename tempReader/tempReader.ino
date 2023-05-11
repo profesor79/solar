@@ -163,7 +163,7 @@ void SendUdpReport() {
     buf += F(", Z2: ");
     buf += String(roof2ZoneTemp, 2);
     buf += F(", last read: ");
-    buf += String(GetTimeFromStart());
+    buf += GetTimeFromStart();
     char repBuff[buf.length()];
     buf.toCharArray(repBuff, buf.length());
 
@@ -175,7 +175,7 @@ void SendUdpReport() {
 }
 
 
- string GetTimeFromStart()
+ String GetTimeFromStart()
  {
  long timeNow = millis();
     
