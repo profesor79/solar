@@ -137,6 +137,8 @@ void SendUdpReport() {
       buf += F(", RoofTotank: ");      
       buf += String(roofToTankTemp, 2);
       buf += F(", Zone1: ");
+      buf += String(roofToTankTemp, 2);
+      buf += F(", waterTest: ");
       buf += String(roof1ZoneTemp, 2);      
       buf += F(", last read: ");
       buf += String(_lastSensorCheckTime);
