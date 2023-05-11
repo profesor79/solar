@@ -140,14 +140,18 @@ void GetTemperatures() {
   }
 }
 
-void SendStateMessage()){}
+void SendStateMessage(){
+
+
+}
+
 void SendUdpReport() {
   if (_udpSent) {
     return;
   }
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
-    Serial.println("udp send");
+
     String buf;
     buf += F("T: ");
     buf += String(tankTemp, 2);
@@ -168,6 +172,7 @@ void SendUdpReport() {
     Udp.write(repBuff);
     Udp.endPacket();
     _udpSent = true;
+        Serial.println("udp send");
   }
 }
 
