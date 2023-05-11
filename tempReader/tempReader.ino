@@ -203,7 +203,7 @@ float seconds =0;
   
 }
 
-void SwitchOnWaterPump(){
+void SwitchOnSolarPump(){
   if(_waterPumpRunning)  {return;}
 
   digitalWrite(solarPumpMotorPin, HIGH);
@@ -211,7 +211,7 @@ void SwitchOnWaterPump(){
 }
 
 
-void SwitchOffWaterPump(){
+void SwitchOffSolarPump(){
   digitalWrite(solarPumpMotorPin, LOW);
   _solarPumpRunning = false;
 }
