@@ -199,5 +199,6 @@ void SendReadTempCommand() {
 
 void FlipFlopPumps() {
   
-  if(hotWaterPumpRunning)
+  if (digitalRead(buttonPin) == LOW) {
+  if()
 }
