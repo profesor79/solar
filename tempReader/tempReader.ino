@@ -163,7 +163,7 @@ void SendUdpReport() {
     buf += F(", Z2: ");
     buf += String(roof2ZoneTemp, 2);
     buf += F(", last read: ");
-    buf += String(_lastSensorCheckTime);
+    buf += String(GetTimeFromStart());
     char repBuff[buf.length()];
     buf.toCharArray(repBuff, buf.length());
 
