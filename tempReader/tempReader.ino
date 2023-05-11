@@ -177,11 +177,13 @@ void SendUdpReport() {
 }
 
 int days=0;
+int hours =0;
+int minutes =]
  String GetTimeFromStart()
  {
  long timeNow = millis();
   days = timeNow / day ;                                //number of days
- int hours = (timeNow % day) / hour;                       //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
+  hours = (timeNow % day) / hour;                       //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
  int minutes = ((timeNow % day) % hour) / minute ;         //and so on...
  float seconds = (((timeNow % day) % hour) % minute) / second;
  
