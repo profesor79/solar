@@ -203,7 +203,10 @@ float seconds =0;
   
 }
 
-void 
+void SwitchOnWaterPump(){
+
+  
+}
 
 void SendReadTempCommand() {
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
