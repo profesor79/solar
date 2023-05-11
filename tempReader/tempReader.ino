@@ -174,6 +174,8 @@ void SendUdpReport() {
   }
 }
 
+
+ string 
 void SendReadTempCommand() {
 
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
