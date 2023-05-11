@@ -133,7 +133,8 @@ void SendUdpReport() {
     return;
   }
 
-  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval ) {
+      
+  if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & ) {
     
      Serial.println("udp send");
       String buf;
