@@ -189,7 +189,6 @@ void SendUdpReport() {
 }
 
 void SendReadTempCommand() {
-
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
     sensors.requestTemperatures();
@@ -199,4 +198,5 @@ void SendReadTempCommand() {
 }
 
 void FlipFlopPumps() {
+  
 }
