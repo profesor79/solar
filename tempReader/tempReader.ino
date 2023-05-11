@@ -200,7 +200,7 @@ void SendReadTempCommand() {
 void FlipFlopPumps() {
   _waterPumpRunning = (digitalRead(waterPumpVoltagePin) == LOW) 
   if(_waterPumpRunning){
-    
+    digitalw
 
 
   }
