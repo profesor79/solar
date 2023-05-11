@@ -204,8 +204,8 @@ float seconds =0;
 }
 
 void SwitchOnWaterPump(){
+if(_waterPumpRunning) {return}
 
-  
 }
 
 void SendReadTempCommand() {
