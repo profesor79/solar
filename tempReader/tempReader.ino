@@ -175,7 +175,23 @@ void SendUdpReport() {
 }
 
 
- string 
+ string GetTimeFromStart()
+ {
+ long timeNow = millis();
+  
+ int days = timeNow / day ;                                //number of days
+ int hours = (timeNow % day) / hour;                       //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
+ int minutes = ((timeNow % day) % hour) / minute ;         //and so on...
+ int seconds = (((timeNow % day) % hour) % minute) / second;
+ 
+  // digital clock display of current time
+  Serial.print(days,DEC);  
+  printDigits(hours);  
+  printDigits(minutes);
+  printDigits(seconds);
+  Serial.println();  
+  
+}
 void SendReadTempCommand() {
 
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
