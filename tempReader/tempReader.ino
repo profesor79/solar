@@ -114,14 +114,14 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
-  FlipFlopPumps()
+  FlipFlopPumps();
   SendReadTempCommand();
-  FlipFlopPumps()
+  FlipFlopPumps();
   GetTemperatures();
-  FlipFlopPumps()
+  FlipFlopPumps();
   SendUdpReport();
-  FlipFlopPumps()
 }
+  FlipFlopPumps();
 void GetTemperatures() {
 
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
