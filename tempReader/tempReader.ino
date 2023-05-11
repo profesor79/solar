@@ -99,6 +99,7 @@ void setup() {
   sensors.setResolution(tankTempAddres, tempBithDepth);
   sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
   sensors.setResolution(zone1Adress, tempBithDepth);
+   sensors.setResolution(waterProofTestAddress, tempBithDepth);
 }
 
 void loop() {
