@@ -212,10 +212,8 @@ void SwitchOnWaterPump(){
 
 
 void SwitchOffWaterPump(){
-  if(_waterPumpRunning)  {return;}
-
-  digitalWrite(solarPumpMotorPin, HIGH);
-  _solarPumpRunning = true;
+  digitalWrite(solarPumpMotorPin, LOW);
+  _solarPumpRunning = false;
 }
 
 void SendReadTempCommand() {
