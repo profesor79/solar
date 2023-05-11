@@ -24,9 +24,7 @@ OneWire ourWire(tempSensorsPin);
 
 
 //etherent
-byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xAA, 0xFE, 0xAA
-};
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xAA, 0xFE, 0xAA};
 IPAddress deviceIp(192, 168, 1, 177);
 IPAddress destinationIP(192, 168, 1, 38);  // the remote IP address
 EthernetUDP Udp;
