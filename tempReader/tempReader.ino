@@ -120,10 +120,11 @@ void loop() {
   GetTemperatures();
   FlipFlopPumps();
   SendUdpReport();
-}
   FlipFlopPumps();
-void GetTemperatures() {
+}
 
+
+void GetTemperatures() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval) {
     if (!_temperatureWaseReadInThisCycle) {
       Serial.println("reading temperatures");
@@ -138,6 +139,8 @@ void GetTemperatures() {
     }
   }
 }
+
+
 void SendUdpReport() {
   if (_udpSent) {
     return;
