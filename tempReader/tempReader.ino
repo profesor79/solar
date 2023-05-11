@@ -5,6 +5,11 @@
 #include <EthernetUdp.h>
 
 
+
+const unsigned long SensorCheckInterval = 10000;
+const unsigned long SensorWaitInterval = 1500;
+
+
 // define pins
 short tempSensorsPin = 7;
 short waterPumpMotorPin = 10;
@@ -61,8 +66,6 @@ unsigned long _lastSensorsRequestTime;
 unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
-const unsigned long SensorCheckInterval = 10000;
-const unsigned long SensorWaitInterval = 1500;
 
 
 
