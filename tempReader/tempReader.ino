@@ -122,7 +122,7 @@ void GetTemperatures() {
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       roof2ZoneTemp = sensors.getTempC(zone2Adress);
       tank2Pump = sensors.getTempC(tank2PumpAddres);
-      tankTemp = sensors.getTempC(waterProofTestAddress);
+      tankTemp = sensors.getTempC(tankAddress);
       _temperatureWaseReadInThisCycle = true;
       _udpSent = false;
     }
@@ -137,7 +137,7 @@ void SendUdpReport() {
      Serial.println("udp send");
       String buf;
       buf += F("Tank: ");
-      buf += String(tank2Pump, 2);
+      buf += String(tank, 2);
       buf += F(", RoofTotank: ");      
       buf += String(roofToTankTemp, 2);
       buf += F(", Z1: ");
