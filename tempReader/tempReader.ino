@@ -168,14 +168,11 @@ void SendUdpReport() {
  String GetTimeFromStart()
  {
  long timeNow = millis();
-    
-  
  int days = timeNow / day ;                                //number of days
  int hours = (timeNow % day) / hour;                       //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
  int minutes = ((timeNow % day) % hour) / minute ;         //and so on...
  int seconds = (((timeNow % day) % hour) % minute) / second;
  
-
  String buf;
     buf += F("D: ");
     buf += String(days,DEC);
