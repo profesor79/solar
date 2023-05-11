@@ -101,7 +101,7 @@ void setup() {
   sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
   sensors.setResolution(zone1Adress, tempBithDepth);
    sensors.setResolution(zone2Adress, tempBithDepth);
-   sensors.setResolution(waterProofTestAddress, tempBithDepth);
+   sensors.setResolution(tankAddress, tempBithDepth);
 
 }
 
@@ -122,7 +122,7 @@ void GetTemperatures() {
       roof1ZoneTemp = sensors.getTempC(zone1Adress);
       roof2ZoneTemp = sensors.getTempC(zone2Adress);
       tank2Pump = sensors.getTempC(tank2PumpAddres);
-      waterProofTest = sensors.getTempC(waterProofTestAddress);
+      tankTemp = sensors.getTempC(waterProofTestAddress);
       _temperatureWaseReadInThisCycle = true;
       _udpSent = false;
     }
