@@ -154,7 +154,7 @@ void SendUdpReport() {
     String buf;
     buf += F("T: ");
     buf += String(tankTemp, 2);
-    buf += F("TP: ");
+    buf += F(", TP: ");
     buf += String(tank2Pump, 2);
     buf += F(", RTT: ");
     buf += String(roofToTankTemp, 2);
