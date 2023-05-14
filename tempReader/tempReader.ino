@@ -103,7 +103,7 @@ void setup() {
   // start UDP
   Udp.begin(8888);
   sensors.begin();
-  sensors2.begin();
+//  sensors2.begin();
   SetSensorsResolution();
   PrintSensorAddresses();
   //switch on water pump
@@ -224,7 +224,7 @@ void GetTemperatures() {
       roofToTankTemp = readTemperaturyBySensorAndAddress(sensors, fromRoofToTankAddress, roofToTankTemp);
 
       roof1ZoneTemp = readTemperaturyBySensorAndAddress(sensors, zone1Adress, roof1ZoneTemp);
-      roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
+ //     roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
       tank2Pump = readTemperaturyBySensorAndAddress(sensors, tank2PumpAddres, tank2Pump);
       tankTemp = readTemperaturyBySensorAndAddress(sensors, tankAddress, tankTemp);
 
