@@ -120,7 +120,6 @@ void SetSensorsResolution() {
 }
 
 void readOneWire(OneWire wire) {
-
   byte addr[8];
   Serial.println("Getting addresses:");
   while (wire.search(addr)) {
