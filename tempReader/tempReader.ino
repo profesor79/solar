@@ -108,7 +108,7 @@ void setup() {
   PrintSensorAddresses();
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
-  SendUDPPacket("String message")
+  SendUDPPacket("system started.");
 }
 
 void SetSensorsResolution() {
