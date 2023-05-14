@@ -103,7 +103,7 @@ void setup() {
   // start UDP
   Udp.begin(8888);
   sensors.begin();
- //sensors2.begin();
+  sensors2.begin();
   SetSensorsResolution();
   PrintSensorAddresses();
   //switch on water pump
