@@ -18,7 +18,7 @@ const float _maxTemp = 45.00;
 
 // define pins
 short tempSensorsPin = 49;  //purple cable on board
-short temp2SensorsPin = 50;
+short temp2SensorsPin = 51;
 short waterPumpMotorPin = 31;
 short waterPumpVoltagePin = 36;
 short solarPumpMotorPin = 32;
