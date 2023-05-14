@@ -204,7 +204,7 @@ void ManageSolarPumpStateByTemperature() {
     }
   }
 
-  if (diff > (10)) {
+  if (diff > (5)) {
     if (_solarPumpRunning) {
       return;
     }
