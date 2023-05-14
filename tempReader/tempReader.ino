@@ -224,7 +224,7 @@ void GetTemperatures() {
       roofToTankTemp = readTemperaturyBySensorAndAddress(sensors, fromRoofToTankAddress, roofToTankTemp);
 
       roof1ZoneTemp = readTemperaturyBySensorAndAddress(sensors, zone1Adress, roof1ZoneTemp);
-      roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors, zone2Adress, roof2ZoneTemp);
+      roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
       tank2Pump = readTemperaturyBySensorAndAddress(sensors, tank2PumpAddres, tank2Pump);
       tankTemp = readTemperaturyBySensorAndAddress(sensors, tankAddress, tankTemp);
 
