@@ -90,6 +90,11 @@ void StopRelays() {
 }
 void setup() {
   Serial.begin(9600);
+  // start the Ethernet
+  Ethernet.begin(mac, deviceIp);
+  // start UDP
+  Udp.begin(8888);
+
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
@@ -98,8 +103,6 @@ void setup() {
 
 
   
-  // start UDP
-  Udp.begin(8888);
   sensors.begin();
 //  sensors2.begin();
   SetSensorsResolution();
