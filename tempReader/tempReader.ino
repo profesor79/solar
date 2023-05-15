@@ -276,8 +276,8 @@ void SendUdpReport() {
     buf += String(roofToTankTemp, 2);
     buf += F(", Z1: ");
     buf += String(roof1ZoneTemp, 2);
-    //buf += F(", Z2: ");
-    //buf += String(roof2ZoneTemp, 2);
+    buf += F(", Z2: ");
+    buf += String(roof2ZoneTemp, 2);
     buf += F(", SP: ");
     buf += String(_solarPumpRunning);
     buf += F(", WP: ");
