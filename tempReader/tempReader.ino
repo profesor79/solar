@@ -77,7 +77,7 @@ void setup() {
 sensors.begin();
 Serial.println("starting sensors 2 ");
 sensors2.begin();
-Serial.println("starting sensors 1 ");
+Serial.println("sensors started ");
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
