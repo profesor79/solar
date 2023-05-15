@@ -73,10 +73,11 @@ bool _udpSent = false;
 void setup() {
   Serial.begin(9600);
   // start the Ethernet
- Serial.print(", ");
+ Serial.println("starting sensors 1 ");
 sensors.begin();
+Serial.println("starting sensors 2 ");
 sensors2.begin();
-
+Serial.println("starting sensors 1 ");
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
