@@ -361,7 +361,7 @@ void SendReadTempCommand() {
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
     sensors.requestTemperatures();
-    //sensors2.requestTemperatures();
+    sensors2.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
     _lastSensorsRequestTime = currentMillis;
   }
