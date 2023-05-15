@@ -94,8 +94,7 @@ Serial.println("sensors started ");
 
 
 void loop() {
-  currentMillis = millis();  // capture the latest value of millis()
-    PrintSensorAddresses();
+  currentMillis = millis();  // capture the latest value of millis()    
   FlipFlopPumps();
   SendReadTempCommand();
   GetTemperatures();
