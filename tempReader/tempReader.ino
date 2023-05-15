@@ -226,7 +226,7 @@ void GetTemperatures() {
       tankTemp = readTemperaturyBySensorAndAddress(sensors, tankAddress, tankTemp);
 
       //2nd sensor group here
-     roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
+     roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, da, roof2ZoneTemp);
 
       _temperatureWaseReadInThisCycle = true;
       _udpSent = false;
