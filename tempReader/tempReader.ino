@@ -1,15 +1,12 @@
-#include <EthernetUdp.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
-#include <Ethernet.h>
-#include <EthernetUdp.h>
-
 
 
 const unsigned long SensorCheckInterval = 10000;
 const unsigned long SensorWaitInterval = 1500;
 const unsigned long FlushInterval = 60000;
 const unsigned long FlushTime = 10000;
+const unsigned long DebounceTime = 120000;
 const float mivAverageTempDiffForFlush = 5.00;
 const float tempDiffToStartWaterPump = 12.00;
 const float tempDiffToStoptWaterPump = 3.00;
@@ -26,26 +23,18 @@ short solarPumpVoltagePin = 37;
 short waterCutOffPin = 35;  //black cable on board
 
 
-//onewire init
-OneWire ourWire(tempSensorsPin);
-OneWire ourWire2(temp2SensorsPin);
-
-
-//etherent
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xAA, 0xFE, 0xAA };
-IPAddress deviceIp(192, 168, 1, 177);
-IPAddress destinationIP(192, 168, 1, 99);  // the remote IP address
-EthernetUDP Udp;
-unsigned int destinationPort = 8888;
-
 const long day = 86400000;  // 86400000 milliseconds in a day
 const long hour = 3600000;  // 3600000 milliseconds in an hour
 const long minute = 60000;  // 60000 milliseconds in a minute
 const long second = 1000;   // 1000 milliseconds in a second
 
+
+//onewire init
+OneWire ourWire(tempSensorsPin);
+//OneWire ourWire2(temp2SensorsPin);
 // temp sensors
 DallasTemperature sensors(&ourWire);
-DallasTemperature sensors2(&ourWire2);
+//DallasTemperature sensors2(&ourWire2);
 
 DeviceAddress tank2PumpAddres = { 0x28, 0x2A, 0xB7, 0xFE, 0xB0, 0x22, 0x8, 0x33 };  //dirección del sensor 1
 DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8, 0xDE };
@@ -62,7 +51,7 @@ float tankTemp = -128;
 
 float averageTankTemperature = 0;
 float averageRoofTemperature = 0;
-const short tempBithDepth = 12;
+const short tempBithDepth = 9;
 
 
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
@@ -74,51 +63,58 @@ unsigned long _lastSensorsRequestTime;
 unsigned long _lastSolarPumpRunTime;
 unsigned long _lastWaterPumpRunTime;
 
-
-
-
 // state section
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
 bool _temperatureWaseReadInThisCycle = true;
 bool _udpSent = false;
 
-void StopRelays() {
-
-  digitalWrite(solarPumpMotorPin, HIGH);
-  digitalWrite(waterPumpMotorPin, HIGH);
-}
 void setup() {
   Serial.begin(9600);
   // start the Ethernet
-  Ethernet.begin(mac, deviceIp);
-  // start UDP
-  Udp.begin(8888);
+sensors.begin();
+//sensors2.begin();
 
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
 
-  StopRelays();
-
-
+  StopRelays();  
   
-  sensors.begin();
 //  sensors2.begin();
-  SetSensorsResolution();
+  //SetSensorsResolution();
   PrintSensorAddresses();
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
-  SendUDPPacket("system started.");
+}
+
+
+
+void loop() {
+  currentMillis = millis();  // capture the latest value of millis()
+    
+  FlipFlopPumps();
+  SendReadTempCommand();
+  GetTemperatures();
+  SendUdpReport();
+  ManageSolarPumpStateByTemperature();
+
+  // PlayRelaySound();
 }
 
 void SetSensorsResolution() {
   // setting resolution to 9 bits as this helps in a star topology
+  
   sensors.setResolution(tank2PumpAddres, tempBithDepth);
   sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
   sensors.setResolution(zone1Adress, tempBithDepth);
-  sensors.setResolution(zone2Adress, tempBithDepth);
+ // sensors.setResolution(zone2Adress, tempBithDepth);
   sensors.setResolution(tankAddress, tempBithDepth);
+  
+}
+void StopRelays() {
+  digitalWrite(solarPumpMotorPin, HIGH);
+  digitalWrite(waterPumpMotorPin, HIGH);
 }
 
 void readOneWire(OneWire wire) {
@@ -137,28 +133,16 @@ void readOneWire(OneWire wire) {
   Serial.println();
   wire.reset_search();
 }
+
+
 void PrintSensorAddresses() {
   // this is to display temperature sensors addresses
   readOneWire(ourWire);
-  readOneWire(ourWire2);
-}
-
-void loop() {
-  currentMillis = millis();  // capture the latest value of millis()
-  FlipFlopPumps();
-  SendReadTempCommand();
-  GetTemperatures();
-  SendUdpReport();
-  ManageSolarPumpStateByTemperature();
-
-  // PlayRelaySound();
+  //readOneWire(ourWire2);
 }
 
 void PlayRelaySound() {
   while (true) {
-
-
-
     delay(500);
     digitalWrite(solarPumpMotorPin, LOW);
     delay(50000);
@@ -177,11 +161,11 @@ void PlayRelaySound() {
 float avgZ1Z2 = 0;
 float avgTank = 0;
 float diff = 0;
-
+long debounceStartTime=0;
 void ManageSolarPumpStateByTemperature() {
   if (tankTemp > _maxTemp) {
     if (_solarPumpRunning) {
-      SendUDPPacket("switch solap pupm off overtemperature reached!!!");
+      SendUDPPacket("switch solap pump off overtemperature reached!!!");
       SwitchOffSolarPump();
     }
 
@@ -190,17 +174,23 @@ void ManageSolarPumpStateByTemperature() {
   if (tankTemp < 0 | roofToTankTemp < 0 | roof1ZoneTemp < 0) {
     return;
   }
+
+
   avgZ1Z2 = roof1ZoneTemp;
   avgTank = tankTemp;
   diff = avgZ1Z2 - avgTank;
 
   if (_solarPumpRunning) {
-    // now we use return to tank sensor to switch this guy off
-    if (roofToTankTemp - 3 > tankTemp) {
-      return;  // pump the water
-    } else {
-      SwitchOffSolarPump();
+    if(currentMillis<debounceStartTime + DebounceTime)
+    {       
+      return;
+      // do nothing
     }
+    
+    // now we use return to tank sensor to switch this guy off
+    if (roofToTankTemp - 1 > tankTemp) {
+      return;  // pump the water
+    }    
   }
 
   if (diff > (5)) {
@@ -208,10 +198,11 @@ void ManageSolarPumpStateByTemperature() {
       return;
     }
 
-    SwitchOnSolarPump();
-    Serial.print("diff: ");
+    debounceStartTime=currentMillis;
+    SwitchOnSolarPump();    
     return;
   }
+
   SwitchOffSolarPump();
 }
 
@@ -222,15 +213,14 @@ void GetTemperatures() {
     if (!_temperatureWaseReadInThisCycle) {
       Serial.println("reading temperatures");
       _lastSensorCheckTime = currentMillis;
-      roofToTankTemp = readTemperaturyBySensorAndAddress(sensors, fromRoofToTankAddress, roofToTankTemp);
 
-      roof1ZoneTemp = readTemperaturyBySensorAndAddress(sensors, zone1Adress, roof1ZoneTemp);
- 
+      roofToTankTemp = readTemperaturyBySensorAndAddress(sensors, fromRoofToTankAddress, roofToTankTemp);
+      roof1ZoneTemp = readTemperaturyBySensorAndAddress(sensors, zone1Adress, roof1ZoneTemp); 
       tank2Pump = readTemperaturyBySensorAndAddress(sensors, tank2PumpAddres, tank2Pump);
       tankTemp = readTemperaturyBySensorAndAddress(sensors, tankAddress, tankTemp);
 
       //2nd sensor group here
-//     roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
+     //roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
 
       _temperatureWaseReadInThisCycle = true;
       _udpSent = false;
@@ -239,18 +229,16 @@ void GetTemperatures() {
 }
 
 float readTemperaturyBySensorAndAddress(DallasTemperature s, DeviceAddress da, float currentTemperature) {
-
+  
   float tmp = s.getTempC(da);
   if (tmp != -127.00 && tmp != 85.00) {
     return tmp;
   } else {
-    // TODO: here we need to mark that we can't read
-    Serial.println("cant read temperature");
-    char *b = addr2str(da);
-    Serial.println(b);
+    // TODO: here we need to mark that we can't read    
+    char *b = addr2str(da);        
     String msg = "Can't read temperature, sensor address is: ";
     msg += b;
-    SendUDPPacket(msg);
+    SendUDPPacket(msg);    
     return currentTemperature;
   }
 }
@@ -296,6 +284,8 @@ void SendUdpReport() {
     buf += F(", last read: ");
     buf += GetTimeFromStart();
     SendUDPPacket(buf);
+    buf = "{\"msg\":\"" + buf + "\"}";
+     
     _udpSent = true;
   }
 }
@@ -305,11 +295,14 @@ void SendUDPPacket(String message) {
   char repBuff[len];
   message.toCharArray(repBuff, len);
 
+/*
   Udp.beginPacket(destinationIP, 8888);
   Udp.write(repBuff);
   Udp.endPacket();
-
-  Serial.print("udp message sent: ");
+  
+  client.publish("/hello", message);    
+*/  
+  Serial.print("message  to send: ");
   Serial.println(message);
 }
 
@@ -360,6 +353,7 @@ void SendReadTempCommand() {
   if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
     Serial.println("sending get temp request");
     sensors.requestTemperatures();
+    //sensors2.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
     _lastSensorsRequestTime = currentMillis;
   }
