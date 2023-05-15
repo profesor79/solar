@@ -31,10 +31,11 @@ const long second = 1000;   // 1000 milliseconds in a second
 
 //onewire init
 OneWire ourWire(tempSensorsPin);
-//OneWire ourWire2(temp2SensorsPin);
+OneWire ourWire2(temp2SensorsPin);
+
 // temp sensors
 DallasTemperature sensors(&ourWire);
-//DallasTemperature sensors2(&ourWire2);
+DallasTemperature sensors2(&ourWire2);
 
 DeviceAddress tank2PumpAddres = { 0x28, 0x2A, 0xB7, 0xFE, 0xB0, 0x22, 0x8, 0x33 };  //dirección del sensor 1
 DeviceAddress fromRoofToTankAddress = { 0x28, 0xB7, 0xA4, 0xE6, 0xB0, 0x22, 0x8, 0xDE };
@@ -73,7 +74,7 @@ void setup() {
   Serial.begin(9600);
   // start the Ethernet
 sensors.begin();
-//sensors2.begin();
+sensors2.begin();
 
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
