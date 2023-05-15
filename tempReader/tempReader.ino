@@ -264,8 +264,11 @@ void SendStateMessage() {
 void SendUdpReport() {
   if (_udpSent) {
     return;
-  }
+  }  
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
+
+    PrintSensorAddresses();
+    
     String buf;
     buf += F("T: ");
     buf += String(tankTemp, 2);
