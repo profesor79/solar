@@ -73,6 +73,7 @@ bool _udpSent = false;
 void setup() {
   Serial.begin(9600);
   // start the Ethernet
+ Serial.print(", ");
 sensors.begin();
 sensors2.begin();
 
@@ -109,7 +110,7 @@ void SetSensorsResolution() {
   sensors.setResolution(tank2PumpAddres, tempBithDepth);
   sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
   sensors.setResolution(zone1Adress, tempBithDepth);
- // sensors.setResolution(zone2Adress, tempBithDepth);
+  sensors.setResolution(zone2Adress, tempBithDepth);
   sensors.setResolution(tankAddress, tempBithDepth);
   
 }
