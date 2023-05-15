@@ -86,7 +86,7 @@ Serial.println("sensors started ");
   StopRelays();  
   
 //  sensors2.begin();
-  //SetSensorsResolution();
+  SetSensorsResolution();
   PrintSensorAddresses();
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
@@ -111,7 +111,7 @@ void SetSensorsResolution() {
   sensors.setResolution(tank2PumpAddres, tempBithDepth);
   sensors.setResolution(fromRoofToTankAddress, tempBithDepth);
   sensors.setResolution(zone1Adress, tempBithDepth);
-  sensors.setResolution(zone2Adress, tempBithDepth);
+  sensors2.setResolution(zone2Adress, tempBithDepth);
   sensors.setResolution(tankAddress, tempBithDepth);
   
 }
