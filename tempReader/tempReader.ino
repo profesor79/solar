@@ -139,7 +139,7 @@ void readOneWire(OneWire wire) {
 void PrintSensorAddresses() {
   // this is to display temperature sensors addresses
   readOneWire(ourWire);
-  //readOneWire(ourWire2);
+  readOneWire(ourWire2);
 }
 
 void PlayRelaySound() {
