@@ -41,6 +41,7 @@ void setup() {
 void loop() {
   if (stringComplete) {
     Serial.println(inputString);
+    SendUDPPacket(inputString);
     // clear the string:
     inputString = "";
     stringComplete = false;
