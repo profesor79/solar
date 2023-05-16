@@ -69,6 +69,6 @@ void SendUDPPacket(String message) {
   Udp.beginPacket(destinationIP, 8888);
   Udp.write(repBuff);
   Udp.endPacket();
-  Serial.println(message);
+  Serial.print(message);
 }
 
