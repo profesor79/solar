@@ -14,13 +14,13 @@ const float tempDiffToStoptWaterPump = 3.00;
 const float _maxTemp = 45.00;
 
 // define pins
-short tempSensorsPin = 49;  //purple cable on board
-short temp2SensorsPin = 41;
-short waterPumpMotorPin = 31;
-short waterPumpVoltagePin = 36;
-short solarPumpMotorPin = 32;
-short solarPumpVoltagePin = 37;
-short waterCutOffPin = 35;  //black cable on board
+short tempSensorsPin = 2 ;//49;  //purple cable on board
+short temp2SensorsPin = 3;//41;
+short waterPumpMotorPin = 6;//31;
+short waterPumpVoltagePin = 10;//36;
+short solarPumpMotorPin = 7;//32;
+short solarPumpVoltagePin = 11;//37;
+short waterCutOffPin =12;//  35;  //black cable on board
 
 
 const long day = 86400000;  // 86400000 milliseconds in a day
