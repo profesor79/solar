@@ -86,9 +86,7 @@ Serial.println("sensors started ");
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
 
-  StopRelays();  
-  
-//  sensors2.begin();
+  StopRelays();    
   SetSensorsResolution();
   PrintSensorAddresses();
   //switch on water pump
