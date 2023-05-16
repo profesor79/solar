@@ -15,17 +15,7 @@ IPAddress destinationIP(192, 168, 1, 99);  // the remote IP address
 EthernetUDP Udp;
 unsigned int destinationPort = 8888;
 
-const long day = 86400000;  // 86400000 milliseconds in a day
-const long hour = 3600000;  // 3600000 milliseconds in an hour
-const long minute = 60000;  // 60000 milliseconds in a minute
-const long second = 1000;   // 1000 milliseconds in a second
 
-
-
-unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
-// time management section
-// as we don't use delay function
-// to be able to switch off pump as fast as possible
 
 
 EthernetClient net;
