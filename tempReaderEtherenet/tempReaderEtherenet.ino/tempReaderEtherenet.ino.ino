@@ -1,7 +1,6 @@
 #include <EthernetUdp.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
-#include <MQTT.h>
 
 String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
@@ -19,7 +18,6 @@ String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 EthernetClient net;
-MQTTClient client;
 
 void setup() {
   Serial.begin(9600);
