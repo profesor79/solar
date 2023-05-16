@@ -296,11 +296,7 @@ void SendUdpReport() {
   }
 }
 
-void SendUDPPacket(String message) {
-  int len = message.length() + 1;
-  char repBuff[len];
-  message.toCharArray(repBuff, len);
-  Serial.print("message  to send: ");
+void SendUDPPacket(String message) {  
   Serial.println(message);
 }
 
