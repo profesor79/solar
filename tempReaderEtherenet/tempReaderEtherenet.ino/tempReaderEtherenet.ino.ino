@@ -3,8 +3,9 @@
 #include <EthernetUdp.h>
 #include <MQTT.h>
 
+String inputString = "";      // a String to hold incoming data
+bool stringComplete = false;  // whether the string is complete
 
-const unsigned long DebounceTime = 120000;
 
 // define pins
 
