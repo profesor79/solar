@@ -288,8 +288,7 @@ void SendUdpReport() {
     buf += F(", diff: ");
     buf += String(diff, 2);
     buf += F(", last read: ");
-    buf += GetTimeFromStart();
-    SendUDPPacket(buf);
+    buf += GetTimeFromStart();    
     buf = "{\"msg\":\"" + buf + "\"}";
      
     _udpSent = true;
