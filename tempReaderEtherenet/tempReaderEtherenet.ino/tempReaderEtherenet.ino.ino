@@ -39,9 +39,12 @@ void setup() {
 
 
 void loop() {
-  currentMillis = millis();  // capture the latest value of millis()
-    client.loop();
-
+  if (stringComplete) {
+    Serial.println(inputString);
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
   if (!client.connected()) {
     connect();
   }
