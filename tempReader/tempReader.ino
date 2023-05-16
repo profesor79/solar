@@ -300,14 +300,6 @@ void SendUDPPacket(String message) {
   int len = message.length() + 1;
   char repBuff[len];
   message.toCharArray(repBuff, len);
-
-/*
-  Udp.beginPacket(destinationIP, 8888);
-  Udp.write(repBuff);
-  Udp.endPacket();
-  
-  client.publish("/hello", message);    
-*/  
   Serial.print("message  to send: ");
   Serial.println(message);
 }
