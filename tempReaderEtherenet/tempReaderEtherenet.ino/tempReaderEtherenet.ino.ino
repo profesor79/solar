@@ -84,25 +84,3 @@ void SendUDPPacket(String message) {
   Serial.println(message);
 }
 
-short days = 0;
-short hours = 0;
-short minutes = 10;
-short seconds = 0;
-String GetTimeFromStart() {
-  long timeNow = millis();
-  days = timeNow / day;                         //number of days
-  hours = (timeNow % day) / hour;               //the remainder from days division (in milliseconds) divided by hours, this gives the full hours
-  minutes = ((timeNow % day) % hour) / minute;  //and so on...
-  seconds = (((timeNow % day) % hour) % minute) / second;
-
-  String buf;
-  buf += F("D-hh:mm:ss ");
-  buf += String(days, DEC);
-  buf += F("-");
-  buf += String(hours, DEC);
-  buf += F(":");
-  buf += String(minutes, DEC);
-  buf += F(":");
-  buf += String(seconds, DEC);
-  return buf;
-}
