@@ -42,11 +42,7 @@ void loop() {
     inputString = "";
     stringComplete = false;
   }
-  if (!client.connected()) {
-    connect();
-  }
-
-
+  
 }
 
 
