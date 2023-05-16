@@ -25,8 +25,6 @@ void setup() {
   Ethernet.begin(mac, deviceIp);
   // start UDP
   Udp.begin(8888);
-  
-  client.begin("192.168.1.75", net);
   //SendUDPPacket("system started.");
   connect();
   SendUDPPacket("system started.");
