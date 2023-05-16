@@ -20,9 +20,9 @@ void setup() {
   Ethernet.begin(mac, deviceIp);
   // start UDP
   Udp.begin(8888);
-  //SendUDPPacket("system started.");
-  
+    
   SendUDPPacket("system started.");
+  
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
 }
@@ -36,12 +36,8 @@ void loop() {
     // clear the string:
     inputString = "";
     stringComplete = false;
-  }
-  
+  }  
 }
-
-
-
 
 void SendUDPPacket(String message) {
   int len = message.length() + 1;
@@ -51,9 +47,6 @@ void SendUDPPacket(String message) {
   Udp.beginPacket(destinationIP, 8888);
   Udp.write(repBuff);
   Udp.endPacket();
-  
-  client.publish("/hello", message);    
-  
   Serial.print("udp message sent: ");
   Serial.println(message);
 }
