@@ -179,8 +179,12 @@ void ManageSolarPumpStateByTemperature() {
     return;
   }
 
-if()
-  avgZ1Z2 = roof1ZoneTemp;
+if(roof1ZoneTemp>roof2ZoneTemp){
+avgZ1Z2 = roof1ZoneTemp;
+}else {
+statements
+}
+  
   avgTank = tankTemp;
   diff = avgZ1Z2 - avgTank;
 
