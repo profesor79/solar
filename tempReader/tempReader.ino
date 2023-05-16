@@ -179,7 +179,7 @@ void ManageSolarPumpStateByTemperature() {
     return;
   }
 
-
+if()
   avgZ1Z2 = roof1ZoneTemp;
   avgTank = tankTemp;
   diff = avgZ1Z2 - avgTank;
