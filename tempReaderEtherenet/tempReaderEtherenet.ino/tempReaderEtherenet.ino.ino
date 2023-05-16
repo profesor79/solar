@@ -15,8 +15,8 @@ IPAddress destinationIP(192, 168, 1, 99);  // the remote IP address
 EthernetUDP Udp;
 unsigned int destinationPort = 8888;
 
-
-
+String inputString = "";      // a String to hold incoming data
+bool stringComplete = false;  // whether the string is complete
 
 EthernetClient net;
 MQTTClient client;
@@ -32,6 +32,8 @@ void setup() {
   //SendUDPPacket("system started.");
   connect();
   SendUDPPacket("system started.");
+  // reserve 200 bytes for the inputString:
+  inputString.reserve(200);
 }
 
 
