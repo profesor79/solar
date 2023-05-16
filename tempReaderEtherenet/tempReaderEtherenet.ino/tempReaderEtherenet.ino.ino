@@ -49,19 +49,6 @@ void loop() {
 
 }
 
-void connect() {
-  Serial.print("connecting...");
-  while (!client.connect("arduino", "", "")) {
-    Serial.print(".");
-    delay(1000);
-  }
-
-  Serial.println("\nconnected!");
-
- // client.subscribe("/hello");
-  // client.unsubscribe("/hello");
-}
-
 
 
 
