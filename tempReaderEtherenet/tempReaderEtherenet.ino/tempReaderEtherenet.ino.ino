@@ -42,7 +42,9 @@ const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"st
 void SendConfiguration(){
 if(configSent==true){
 
-  if(currentMillis>lastConfigSendTime+con)
+  if(currentMillis-configSendInterval>lastConfigSendTime){
+    
+  }
 }
 
 
