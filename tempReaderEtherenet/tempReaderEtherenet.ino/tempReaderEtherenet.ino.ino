@@ -1,5 +1,4 @@
 #include <EthernetUdp.h>
-#include <MQTT.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
@@ -14,11 +13,9 @@ String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
-unsigned long lastConfigSendTime = 0;
-unsigned long configSendInterval = 60000;
 
 EthernetClient net;
-MQTTClient client;
+
 
 void setup() {
   Serial.begin(9600);
