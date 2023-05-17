@@ -25,6 +25,7 @@ void setup() {
   // start UDP
   Udp.begin(8888);
   client.begin("192.168.1.75", net);    
+  connect();
   SendUDPPacket("system started.");
   
   // reserve 200 bytes for the inputString:
