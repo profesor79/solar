@@ -169,7 +169,7 @@ long debounceStartTime=0;
 void ManageSolarPumpStateByTemperature() {
   if (tankTemp > _maxTemp) {
     if (_solarPumpRunning) {
-      SendUDPPacket("switch solap pump off overtemperature reached!!!");
+      WriteLogEntry("switch solap pump off overtemperature reached!!!");
       SwitchOffSolarPump();
     }
 
@@ -247,7 +247,7 @@ float readTemperaturyBySensorAndAddress(DallasTemperature s, DeviceAddress da, f
     char *b = addr2str(da);        
     String msg = "Can't read temperature, sensor address is: ";
     msg += b;
-    SendUDPPacket(msg);    
+    WriteLogEntry(msg);    
     return currentTemperature;
   }
 }
@@ -294,12 +294,12 @@ void SendUdpReport() {
     buf += F(", last read: ");
     buf += GetTimeFromStart();
     
-    SendUDPPacket(buf);
+    WriteLogEntry(buf);
     _udpSent = true;
   }
 }
 
-void SendUDPPacket(String message) {  
+void WriteLogEntry(String message) {  
   Serial.println(message);
 }
 
@@ -332,7 +332,7 @@ void SwitchOnSolarPump() {
   digitalWrite(solarPumpMotorPin, LOW);
   if (!_solarPumpRunning) {
     _solarPumpRunning = true;
-    SendUDPPacket("SolarPump:1");
+    WriteLogEntry("SolarPump:1");
   }
 }
 
@@ -341,7 +341,7 @@ void SwitchOffSolarPump() {
   digitalWrite(solarPumpMotorPin, HIGH);
   if (_solarPumpRunning) {
     _solarPumpRunning = false;
-    SendUDPPacket("SolarPump: 1");
+    WriteLogEntry("SolarPump: 1");
   }
 }
 
@@ -366,8 +366,8 @@ void FlipFlopPumps() {
   if (_waterPumpRunning) {
     SwitchOffSolarPump();
     _solarPumpRunning = false;
-    SendUDPPacket("WaterPump:1");
+    WriteLogEntry("WaterPump:1");
   } else {
-    SendUDPPacket("WaterPump:0");
+    WriteLogEntry("WaterPump:0");
   }
 }
