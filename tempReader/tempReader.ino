@@ -307,21 +307,23 @@ if{reportStep==3}{
 
 if{reportStep==4}{
       reportStep++;
-    }
-    buf = F("RoofZone2:");
+      buf = F("RoofZone2:");
     buf += String(roof2ZoneTemp, 2);
     WriteLogEntry(buf);
-
-if{reportStep==0}{
-      reportStep++;
     }
-    buf = F("SolarPump:");
+    
+
+if{reportStep==5}{
+      reportStep++;
+      buf = F("SolarPump:");
     if (_solarPumpRunning == true) {
       buf += String(1);
     } else {
       buf += String(0);
     }
     WriteLogEntry(buf);
+    }
+    
 
 if{reportStep==0}{
       reportStep++;
