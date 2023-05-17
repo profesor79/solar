@@ -82,7 +82,7 @@ void SendUDPPacket(String message) {
   Udp.beginPacket(destinationIP, 8888);
   Udp.write(repBuff);
   Udp.endPacket();
-  Serial.print(message);
+  //Serial.print(message);
 
   short splitAt = message.indexOf(":");
   
@@ -90,7 +90,7 @@ void SendUDPPacket(String message) {
   {
   String name = message.substring(0,splitAt);
   String value = message.substring(splitAt+1, message.length());
-  Serial.print("Name" + name);
+  Serial.print("Name:" + name);
     Serial.println(" V:" + value);
    //client.publish("homeassistant/sensors/" + name, value);    
   }
