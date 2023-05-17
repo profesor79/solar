@@ -50,6 +50,7 @@ String config = configBase.replace("__", "WaterTank");
 client.publish("homeassistant/sensor/" + name+"/config", value);    
 }
 
+void publishConfig(String name)
 
 void loop() {
   if (stringComplete) {
