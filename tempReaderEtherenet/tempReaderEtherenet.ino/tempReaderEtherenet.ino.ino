@@ -115,7 +115,7 @@ void serialEvent1() {
   }
 }
 
-
+void PublishMessageoNTopic()
 void SendUDPPacket(String message) {
   int len = message.length() + 1;
   char repBuff[len];
