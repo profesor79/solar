@@ -338,7 +338,6 @@ void SwitchOnSolarPump() {
 
 
 void SwitchOffSolarPump() {
-
   digitalWrite(solarPumpMotorPin, HIGH);
   if (_solarPumpRunning) {
     _solarPumpRunning = false;
