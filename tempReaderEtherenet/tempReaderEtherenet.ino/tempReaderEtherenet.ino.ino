@@ -85,7 +85,7 @@ void loop() {
     inputString = "";
     stringComplete = false;
   }  
-
+client.loop();
   SendConfiguration();
 }
 
