@@ -72,6 +72,6 @@ void SendUDPPacket(String message) {
   Serial.print(message);
 
   short splitAt = message.indexOf(":");
-  String name = 
+  String name = message.substring(0,splitAt);
 }
 
