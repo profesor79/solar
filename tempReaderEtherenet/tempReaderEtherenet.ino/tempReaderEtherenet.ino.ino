@@ -14,8 +14,8 @@ String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
-unsigned long lastConfigSendTime= 0;
-unsigned long configSendInterval= 60000;
+unsigned long lastConfigSendTime = 0;
+unsigned long configSendInterval = 60000;
 
 EthernetClient net;
 MQTTClient client;
@@ -27,53 +27,50 @@ void setup() {
   Ethernet.begin(mac, deviceIp);
   // start UDP
   Udp.begin(8888);
-  client.begin("192.168.1.75", net);    
+  client.begin("192.168.1.75", net);
   connect();
   SendUDPPacket("system started.");
-  
+
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
 
-        publishConfig("WaterTank");
-        publishConfig("Tank2Pump");
-        publishConfig("ReturnToTank");
-        publishConfig("RoofZone1");
-  
+  publishConfig("WaterTank");
+  publishConfig("Tank2Pump");
+  publishConfig("ReturnToTank");
+  publishConfig("RoofZone1");
 }
 
 const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/greg___\",\"icon\": \"mdi:temperature-celsius\" }";
 
-void SendConfiguration(){
+void SendConfiguration() {
 
-/*
+  /*
 RoofZone2
 SolarPump
 WaterPump
 
 */
 
-  if(currentMillis>configSendInterval+lastConfigSendTime){
+  if (currentMillis > configSendInterval + lastConfigSendTime) {
 
-        publishConfig("WaterTank");
-        publishConfig("Tank2Pump");
-        publishConfig("ReturnToTank");
-        publishConfig("RoofZone1");
-        lastConfigSendTime = currentMillis;
+    publishConfig("WaterTank");
+    publishConfig("Tank2Pump");
+    publishConfig("ReturnToTank");
+    publishConfig("RoofZone1");
+    lastConfigSendTime = currentMillis;
   }
 
-//publishConfig("");
-//publishConfig("");
-
+  //publishConfig("");
+  //publishConfig("");
 }
 
-void publishConfig(String name){
-String c = configBase;
-c.replace("__",  name);
-String topic ="homeassistant/sensor/greg_" + name+"/config";
-client.publish(topic, c);    
-Serial.println(topic);
-Serial.println(c);
-
+void publishConfig(String name) {
+  String c = configBase;
+  c.replace("__", name);
+  String topic = "homeassistant/sensor/greg_" + name + "/config";
+  client.publish(topic, c);
+  Serial.println(topic);
+  Serial.println(c);
 }
 
 void loop() {
@@ -84,8 +81,8 @@ void loop() {
     // clear the string:
     inputString = "";
     stringComplete = false;
-  }  
-client.loop();
+  }
+  client.loop();
   SendConfiguration();
 }
 
@@ -96,7 +93,7 @@ void connect() {
     delay(1000);
   }
 
-  Serial.println("\nconnected!"); 
+  Serial.println("\nconnected!");
 }
 
 /*
@@ -130,16 +127,12 @@ void SendUDPPacket(String message) {
   //Serial.print(message);
 
   short splitAt = message.indexOf(":");
-  
-  if(splitAt>0)
-  {
-  String name = message.substring(0,splitAt);
-  String value = message.substring(splitAt+1, message.length());
-//  Serial.print("Name: " + name);
-  //  Serial.println(", V: " + value);
-   client.publish("homeassistant/sensor/greg_" + name, value);    
+
+  if (splitAt > 0) {
+    String name = message.substring(0, splitAt);
+    String value = message.substring(splitAt + 1, message.length());
+    //  Serial.print("Name: " + name);
+    //  Serial.println(", V: " + value);
+    client.publish("homeassistant/sensor/greg_" + name, value);
   }
-  
-
 }
-
