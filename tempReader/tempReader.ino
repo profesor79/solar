@@ -92,7 +92,7 @@ void setup() {
   
   Serial.begin(9600);
   Serial.println("version 0.37");
-  mySerial.
+  mySerial.println("version 0.37");
   // start the Ethernet
   Serial.println("starting sensors 1 ");
   sensors.begin();
