@@ -325,7 +325,7 @@ if{reportStep==5}{
     }
     
 
-if{reportStep==0}{
+if{reportStep==6}{
       reportStep++;
           buf = F("WaterPump:");
     if (_waterPumpRunning == true) {
@@ -336,8 +336,8 @@ if{reportStep==0}{
     WriteLogEntry(buf);
     }
 
-if{reportStep==0}{
-      reportStep++;
+if{reportStep==7}{
+      
     buf = F("TemperatureDiff:");
     buf += String(diff, 2);
     WriteLogEntry(buf);
