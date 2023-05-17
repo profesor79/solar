@@ -36,6 +36,16 @@ void setup() {
 
 String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 void SendConfiguration(){
+/*
+WaterTank
+Tank2Pump
+ReturnToTank
+RoofZone1
+RoofZone2
+SolarPump
+WaterPump
+
+*/
 //RoofZone1
 //RoofZone2
 
