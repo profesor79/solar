@@ -72,7 +72,7 @@ unsigned long _lastWaterPumpRunTime;
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
 bool _temperatureWaseReadInThisCycle = true;
-bool _udpSent = false;
+bool parametersSend = false;
 
 void setup() {
   Serial.begin(9600);
@@ -230,7 +230,7 @@ void GetTemperatures() {
       //  roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
 
       _temperatureWaseReadInThisCycle = true;
-      _udpSent = false;
+      parametersSend = false;
     }
   }
 }
@@ -267,7 +267,7 @@ void SendStateMessage() {
 }
 
 void SendUdpReport() {
-  if (_udpSent) {
+  if (parametersSend) {
     return;
   }
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
@@ -314,8 +314,8 @@ void SendUdpReport() {
     buf = F("TemperatureDiff:");
     buf += String(diff, 2);
     WriteLogEntry(buf);
-        
-    _udpSent = true;
+
+    parametersSend = true;
   }
 }
 
