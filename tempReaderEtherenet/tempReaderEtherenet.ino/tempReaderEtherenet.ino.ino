@@ -1,4 +1,6 @@
 #include <EthernetUdp.h>
+#include <MQTT.h>
+
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
