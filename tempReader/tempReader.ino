@@ -302,7 +302,7 @@ void SendUdpReport() {
     }
     WriteLogEntry(buf);
 
-    buf = F("WaterPump: ");
+    buf = F("WaterPump:");
     if (_waterPumpRunning)){
         buf += String(1);
       }
