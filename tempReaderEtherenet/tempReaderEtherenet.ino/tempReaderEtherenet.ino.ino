@@ -71,6 +71,6 @@ void SendUDPPacket(String message) {
   Udp.endPacket();
   Serial.print(message);
 
-  u splmessage.indexOf(val)
+  short splitAt = message.indexOf("")
 }
 
