@@ -266,7 +266,7 @@ char *addr2str(DeviceAddress deviceAddress) {
 void SendStateMessage() {
 }
 
-short reportStep=0;
+short reportStep = 0;
 void SendReport() {
   if (parametersSend) {
     return;
@@ -274,77 +274,82 @@ void SendReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    if{reportStep==0}{
+    if { reportStep == 0 }
+    {
       reportStep++;
-      
-    buf = F("WaterTank:");
-    buf += String(tankTemp, 2);
-    WriteLogEntry(buf);
+
+      buf = F("WaterTank:");
+      buf += String(tankTemp, 2);
+      WriteLogEntry(buf);
     }
 
-if{reportStep==1}{
+    if { reportStep == 1 }
+    {
       reportStep++;
       buf = F("Tank2Pump:");
-    buf += String(tank2Pump, 2);
-    WriteLogEntry(buf);
+      buf += String(tank2Pump, 2);
+      WriteLogEntry(buf);
     }
-    
-if{reportStep==2}{
+
+    if { reportStep == 2 }
+    {
       reportStep++;
       buf = F("ReturnToTank:");
-    buf += String(roofToTankTemp, 2);
-    WriteLogEntry(buf);
+      buf += String(roofToTankTemp, 2);
+      WriteLogEntry(buf);
     }
-    
 
-if{reportStep==3}{
+
+    if { reportStep == 3 }
+    {
       reportStep++;
       buf = F("RoofZone1:");
-    buf += String(roof1ZoneTemp, 2);
-    WriteLogEntry(buf);
+      buf += String(roof1ZoneTemp, 2);
+      WriteLogEntry(buf);
     }
-    
 
-if{reportStep==4}{
+
+    if { reportStep == 4 }
+    {
       reportStep++;
       buf = F("RoofZone2:");
-    buf += String(roof2ZoneTemp, 2);
-    WriteLogEntry(buf);
+      buf += String(roof2ZoneTemp, 2);
+      WriteLogEntry(buf);
     }
-    
 
-if{reportStep==5}{
+
+    if { reportStep == 5 }
+    {
       reportStep++;
       buf = F("SolarPump:");
-    if (_solarPumpRunning == true) {
-      buf += String(1);
-    } else {
-      buf += String(0);
+      if (_solarPumpRunning == true) {
+        buf += String(1);
+      } else {
+        buf += String(0);
+      }
+      WriteLogEntry(buf);
     }
-    WriteLogEntry(buf);
-    }
-    
 
-if{reportStep==6}{
+    if { reportStep == 6 }
+    {
       reportStep++;
-          buf = F("WaterPump:");
-    if (_waterPumpRunning == true) {
-      buf += String(1);
-    } else {
-      buf += String(0);
-    }
-    WriteLogEntry(buf);
+      buf = F("WaterPump:");
+      if (_waterPumpRunning == true) {
+        buf += String(1);
+      } else {
+        buf += String(0);
+      }
+      WriteLogEntry(buf);
     }
 
-if{reportStep==7}{
-      
-    buf = F("TemperatureDiff:");
-    buf += String(diff, 2);
-    WriteLogEntry(buf);
-       parametersSend = true;
-       reportStep=0;
-}
- 
+    if { reportStep == 7 }
+    {
+      buf = F("TemperatureDiff:");
+      buf += String(diff, 2);
+      WriteLogEntry(buf);
+      parametersSend = true;
+      reportStep = 0;
+    }
   }
 }
 
