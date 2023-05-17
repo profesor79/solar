@@ -16,6 +16,7 @@ bool stringComplete = false;  // whether the string is complete
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
 unsigned long lastConfigSendTime= 0;
 unsigned long configSendInterval= 300000;
+bool configSent = true;
 
 EthernetClient net;
 MQTTClient client;
