@@ -24,8 +24,6 @@ void setup() {
   Ethernet.begin(mac, deviceIp);
   // start UDP
   Udp.begin(8888);
-  client.begin("192.168.1.75", net);
-  connect();
   SendUDPPacket("system started.");
 
   // reserve 200 bytes for the inputString:
@@ -33,25 +31,6 @@ void setup() {
 
 }
 
-const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"solar/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
-
-void SendConfiguration() {
-
-  /*
-RoofZone2
-SolarPump
-WaterPump
-
-*/
-
-  if (currentMillis > configSendInterval + lastConfigSendTime) {
-
-    publishConfig("WaterTank");
-    publishConfig("Tank2Pump");
-    publishConfig("ReturnToTank");
-    publishConfig("RoofZone1");
-    lastConfigSendTime = currentMillis;
-  }
 
   //publishConfig("");
   //publishConfig("");
