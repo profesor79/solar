@@ -137,7 +137,7 @@ void SendUDPPacket(String message) {
   String value = message.substring(splitAt+1, message.length());
 //  Serial.print("Name: " + name);
   //  Serial.println(", V: " + value);
-   client.publish("homeassistant/sensor/" + name, value);    
+   client.publish("homeassistant/sensor/greg_" + name, value);    
   }
   
 
