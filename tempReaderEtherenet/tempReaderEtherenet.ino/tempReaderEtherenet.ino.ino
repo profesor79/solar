@@ -53,7 +53,7 @@ publishConfig("RoofZone1");
 
 void publishConfig(String name){
 String c = configBase.replace("__", name);
-client.publish("homeassistant/sensor/" + name+"/config", config);    
+client.publish("homeassistant/sensor/" + name+"/config", c);    
 
 }
 
