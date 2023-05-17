@@ -39,6 +39,16 @@ void setup() {
 
 const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 
+void SendConfiguration(){
+  if(currentMillis-configSendInterval>lastConfigSendTime){
+        publishConfig("WaterTank");
+        publishConfig("Tank2Pump");
+        publishConfig("ReturnToTank");
+        publishConfig("RoofZone1");
+        lastConfigSendTime = currentMillis;
+  }
+
+
 
 /*
 RoofZone2
