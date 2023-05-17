@@ -341,13 +341,12 @@ void SwitchOffSolarPump() {
   digitalWrite(solarPumpMotorPin, HIGH);
   if (_solarPumpRunning) {
     _solarPumpRunning = false;
-    SendUDPPacket("Solar Pump OFF");
+    SendUDPPacket("SolarPump: 1");
   }
 }
 
 void SendReadTempCommand() {
-  if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) {
-    Serial.println("sending get temp request");
+  if (currentMillis > _lastSensorsRequestTime + SensorCheckInterval) { 
     sensors.requestTemperatures();
     sensors2.requestTemperatures();
     _temperatureWaseReadInThisCycle = false;
