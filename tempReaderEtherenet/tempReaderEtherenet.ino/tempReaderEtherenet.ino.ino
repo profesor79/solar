@@ -136,6 +136,7 @@ void SendUDPPacket(String message) {
     client.publish("solar/sensor/greg_" + name, value);
   
     Udp.beginPacket(destinationIP, 8888);
+  len = name.length() + 1;
   Udp.write(name);
   Udp.endPacket();
 
