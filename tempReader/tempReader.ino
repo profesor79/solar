@@ -16,13 +16,13 @@ const float tempDiffToStoptWaterPump = 3.00;
 const float _maxTemp = 45.00;
 
 // define pins
-short tempSensorsPin = 2;        //49;  //purple cable on board
-short temp2SensorsPin = 3;       //41;
-short waterPumpMotorPin = 6;     //31;
-short waterPumpVoltagePin = 10;  //36;
-short solarPumpMotorPin = 7;     //32;
-short solarPumpVoltagePin = 11;  //37;
-short waterCutOffPin = 12;       //  35;  //black cable on board
+const byte tempSensorsPin = 2;        //49;  //purple cable on board
+const byte temp2SensorsPin = 3;       //41;
+const byte waterPumpMotorPin = 6;     //31;
+const byte waterPumpVoltagePin = 10;  //36;
+const byte solarPumpMotorPin = 7;     //32;
+const byte solarPumpVoltagePin = 11;  //37;
+const byte waterCutOffPin = 12;       //  35;  //black cable on board
 
 const byte rxPin = 4;
 const byte txPin = 5;
