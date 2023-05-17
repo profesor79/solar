@@ -287,7 +287,7 @@ void SendUdpReport() {
     buf += String(roofToTankTemp, 2);
     WriteLogEntry(buf);
     
-    buf = F(", Z1: ");
+    buf = F(", RoofZone1: ");
     buf += String(roof1ZoneTemp, 2);
     WriteLogEntry(buf);
     
