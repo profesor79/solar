@@ -135,14 +135,7 @@ void SendUDPPacket(String message) {
     //  Serial.println(", V: " + value);
     client.publish("solar/sensor/greg_" + name, value);
   
-    Udp.beginPacket(destinationIP, 8888);
-  len = name.length() + 1;
-  Udp.write(name);
-  Udp.endPacket();
-
-    Udp.beginPacket(destinationIP, 8888);
-  Udp.write(value);
-  Udp.endPacket();
+  
 
   }
 }
