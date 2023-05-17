@@ -34,6 +34,11 @@ void setup() {
   SendConfiguration();
 }
 
+String configBase = SendConfiguration();
+void SendConfiguration(){
+
+
+}
 
 
 void loop() {
