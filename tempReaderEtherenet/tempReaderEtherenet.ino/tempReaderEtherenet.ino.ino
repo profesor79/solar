@@ -49,6 +49,7 @@ WaterPump
 */
 
   if(currentMillis-configSendInterval<lastConfigSendTime){
+    
         publishConfig("WaterTank");
         publishConfig("Tank2Pump");
         publishConfig("ReturnToTank");
