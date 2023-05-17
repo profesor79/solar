@@ -13,6 +13,7 @@ unsigned int destinationPort = 8888;
 String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
+unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
 
 EthernetClient net;
 MQTTClient client;
