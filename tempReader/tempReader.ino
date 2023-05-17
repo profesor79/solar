@@ -341,7 +341,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 7 }
+    if (reportStep == 7)
     {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
