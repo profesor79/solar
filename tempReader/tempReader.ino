@@ -75,7 +75,9 @@ bool _temperatureWaseReadInThisCycle = true;
 bool parametersSend = false;
 
 void setup() {
+  
   Serial.begin(9600);
+  Serial.println("version 0.36");
   // start the Ethernet
   Serial.println("starting sensors 1 ");
   sensors.begin();
