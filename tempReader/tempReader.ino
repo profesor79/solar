@@ -87,10 +87,12 @@ void setup() {
     pinMode(rxPin, INPUT);
     pinMode(txPin, OUTPUT);
     
-    // Set the baud rate for the SoftwareSerial object
+  // Set the baud rate for the SoftwareSerial object
   mySerial.begin(9600);
+  
   Serial.begin(9600);
-  Serial.println("version 0.36");
+  Serial.println("version 0.37");
+  mySerial.
   // start the Ethernet
   Serial.println("starting sensors 1 ");
   sensors.begin();
