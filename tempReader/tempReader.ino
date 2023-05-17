@@ -276,17 +276,19 @@ void SendReport() {
     String buf;
     if{reportStep==0}{
       reportStep++;
-    }
+      
     buf = F("WaterTank:");
     buf += String(tankTemp, 2);
     WriteLogEntry(buf);
-
-if{reportStep==0}{
-      reportStep++;
     }
-    buf = F("Tank2Pump:");
+
+if{reportStep==1}{
+      reportStep++;
+      buf = F("Tank2Pump:");
     buf += String(tank2Pump, 2);
     WriteLogEntry(buf);
+    }
+    
 if{reportStep==0}{
       reportStep++;
     }
