@@ -274,7 +274,8 @@ void SendReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    uf += F("WaterTank:");
+    if{reportStep==0}
+    buf = F("WaterTank:");
     buf += String(tankTemp, 2);
     WriteLogEntry(buf);
 
