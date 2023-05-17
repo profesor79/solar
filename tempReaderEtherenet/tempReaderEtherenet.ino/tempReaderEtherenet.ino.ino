@@ -48,15 +48,6 @@ void SendConfiguration(){
         lastConfigSendTime = currentMillis;
   }
 
-
-
-/*
-RoofZone2
-SolarPump
-WaterPump
-
-*/
-
 //publishConfig("");
 //publishConfig("");
 
