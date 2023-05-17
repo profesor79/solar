@@ -274,7 +274,7 @@ void SendReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    if { reportStep == 0 }
+    if (reportStep == 0 )
     {
       reportStep++;
 
@@ -283,7 +283,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if { reportStep == 1 }
+    if (reportStep == 1 }
     {
       reportStep++;
       buf = F("Tank2Pump:");
@@ -291,7 +291,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if { reportStep == 2 }
+    if (reportStep == 2 }
     {
       reportStep++;
       buf = F("ReturnToTank:");
@@ -300,7 +300,7 @@ void SendReport() {
     }
 
 
-    if { reportStep == 3 }
+    if (reportStep == 3 }
     {
       reportStep++;
       buf = F("RoofZone1:");
@@ -309,7 +309,7 @@ void SendReport() {
     }
 
 
-    if { reportStep == 4 }
+    if (reportStep == 4 }
     {
       reportStep++;
       buf = F("RoofZone2:");
@@ -318,7 +318,7 @@ void SendReport() {
     }
 
 
-    if { reportStep == 5 }
+    if (reportStep == 5 }
     {
       reportStep++;
       buf = F("SolarPump:");
@@ -330,7 +330,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if { reportStep == 6 }
+    if (reportStep == 6 }
     {
       reportStep++;
       buf = F("WaterPump:");
@@ -342,7 +342,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if { reportStep == 7 }
+    if (reportStep == 7 }
     {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
