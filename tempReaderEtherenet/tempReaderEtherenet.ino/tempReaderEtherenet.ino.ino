@@ -78,7 +78,7 @@ void loop() {
   if (stringComplete) {
     //Serial.println(inputString);
     SendUDPPacket(inputString);
-    PublishMessageOnTopic){}
+    PublishMessageOnTopic(inputString);
     // clear the string:
     inputString = "";
     stringComplete = false;
