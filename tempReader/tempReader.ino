@@ -294,19 +294,17 @@ void SendUdpReport() {
     WriteLogEntry(buf);
 
     buf = F("SolapPump:");
-    if (_solarPumpRunning==true){
-        buf += String(1);
-      }
-    else {
+    if (_solarPumpRunning == true) {
+      buf += String(1);
+    } else {
       buf += String(0);
     }
     WriteLogEntry(buf);
 
     buf = F("WaterPump:");
-    if (_waterPumpRunning==true){
-        buf += String(1);
-      }
-    else {
+    if (_waterPumpRunning == true) {
+      buf += String(1);
+    } else {
       buf += String(0);
     }
     WriteLogEntry(buf);
