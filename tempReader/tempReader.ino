@@ -287,15 +287,22 @@ if{reportStep==0}{
     buf = F("Tank2Pump:");
     buf += String(tank2Pump, 2);
     WriteLogEntry(buf);
-
+if{reportStep==0}{
+      reportStep++;
+    }
     buf = F("ReturnToTank:");
     buf += String(roofToTankTemp, 2);
     WriteLogEntry(buf);
 
+if{reportStep==0}{
+      reportStep++;
+    }
     buf = F("RoofZone1:");
     buf += String(roof1ZoneTemp, 2);
     WriteLogEntry(buf);
-
+if{reportStep==0}{
+      reportStep++;
+    }
     buf = F("RoofZone2:");
     buf += String(roof2ZoneTemp, 2);
     WriteLogEntry(buf);
