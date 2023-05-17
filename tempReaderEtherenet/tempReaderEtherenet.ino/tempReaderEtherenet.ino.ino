@@ -37,7 +37,7 @@ void setup() {
   
 }
 
-const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"arduino/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
+const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 
 void SendConfiguration(){
   
@@ -64,7 +64,7 @@ WaterPump
 void publishConfig(String name){
 String c = configBase;
 c.replace("__", name);
-String topic ="arduino/sensor/" + name+"/config";
+String topic ="homeassistant/sensor/" + name+"/config";
 client.publish(topic, c);    
 Serial.println(topic);
 Serial.println(c);
@@ -86,7 +86,7 @@ void loop() {
 
 void connect() {
   Serial.print("connecting...");
-  while (!client.connect("arduino", "", "")) {
+  while (!client.connect("homeassistant", "", "")) {
     Serial.print(".");
     delay(1000);
   }
@@ -132,7 +132,7 @@ void SendUDPPacket(String message) {
   String value = message.substring(splitAt+1, message.length());
 //  Serial.print("Name: " + name);
   //  Serial.println(", V: " + value);
-   client.publish("arduino/sensor/" + name, value);    
+   client.publish("homeassistant/sensor/" + name, value);    
   }
   
 
