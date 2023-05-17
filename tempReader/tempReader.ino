@@ -335,8 +335,10 @@ if{reportStep==0}{
     buf = F("TemperatureDiff:");
     buf += String(diff, 2);
     WriteLogEntry(buf);
+       parametersSend = true;
+       reportStep=0;
 }
-    parametersSend = true;
+ 
   }
 }
 
