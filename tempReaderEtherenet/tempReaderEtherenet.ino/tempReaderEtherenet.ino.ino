@@ -45,6 +45,7 @@ void SendConfiguration(){
         publishConfig("Tank2Pump");
         publishConfig("ReturnToTank");
         publishConfig("RoofZone1");
+        lastConfigSendTime = currentMillis;
   }
 }
 
