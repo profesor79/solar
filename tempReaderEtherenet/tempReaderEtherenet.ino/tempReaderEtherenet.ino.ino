@@ -32,31 +32,21 @@ void setup() {
 }
 
 
-  //publishConfig("");
-  //publishConfig("");
+
 }
 
-void publishConfig(String name) {
-  String c = configBase;
-  c.replace("__", "greg_" + name);
-  String topic = "solar/sensor/greg_" + name + "/config";
-  client.publish(topic, c);
-  Serial.println(topic);
-  Serial.println(c);
-}
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
   if (stringComplete) {
     //Serial.println(inputString);
     SendUDPPacket(inputString);
-    PublishMessageOnTopic(inputString);
     // clear the string:
     inputString = "";
     stringComplete = false;
   }
-  client.loop();
-  SendConfiguration();
+
+  
 }
 
 void connect() {
