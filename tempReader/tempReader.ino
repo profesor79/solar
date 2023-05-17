@@ -301,13 +301,13 @@ void SendUdpReport() {
 
     WriteLogEntry(buf);
 
-    buf = F("WP: ");
-if (_solarPumpRunning)){
+    buf = F("WaterPump: ");
+if (_waterPumpRunning)){
         buf += String(1);
       }
     else { buf += String(0); }
 
-    buf += String(_waterPumpRunning);
+    
     WriteLogEntry(buf);
 
     buf = F("TemperatureDiff:");
