@@ -266,6 +266,7 @@ char *addr2str(DeviceAddress deviceAddress) {
 void SendStateMessage() {
 }
 
+short reportStep=0;
 void SendReport() {
   if (parametersSend) {
     return;
@@ -273,7 +274,7 @@ void SendReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    buf += F("WaterTank:");
+    uf += F("WaterTank:");
     buf += String(tankTemp, 2);
     WriteLogEntry(buf);
 
