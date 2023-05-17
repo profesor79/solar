@@ -115,7 +115,15 @@ void serialEvent1() {
   }
 }
 
-void PublishMessageoNTopic(String message){
+void PublishMessageOnTopic(String message){
+  short splitAt = message.indexOf(":");
+
+  if (splitAt > 0) {
+    String name = message.substring(0, splitAt);
+    String value = message.substring(splitAt + 1, message.length());
+    //  Serial.print("Name: " + name);
+    //  Serial.println(", V: " + value);
+    client.publish("solar/sensor/greg_" + name, value);
 
 }
 
@@ -129,14 +137,6 @@ void SendUDPPacket(String message) {
   Udp.endPacket();
   //Serial.print(message);
 
-  short splitAt = message.indexOf(":");
-
-  if (splitAt > 0) {
-    String name = message.substring(0, splitAt);
-    String value = message.substring(splitAt + 1, message.length());
-    //  Serial.print("Name: " + name);
-    //  Serial.println(", V: " + value);
-    client.publish("solar/sensor/greg_" + name, value);
   
   
 
