@@ -55,7 +55,7 @@ void publishConfig(String name){
 String c = configBase;
 c.replace("__", name);
 client.publish("homeassistant/sensor/" + name+"/config", c);    
-Serial.write(c)
+Serial.writeln(c);
 
 }
 
