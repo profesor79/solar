@@ -44,7 +44,7 @@ void setup() {
 const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 
 void SendConfiguration(){
-Serial.println(currentMillis-configSendInterval);  
+
 /*
 RoofZone2
 SolarPump
