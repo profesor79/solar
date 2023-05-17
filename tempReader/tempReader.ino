@@ -305,7 +305,7 @@ void SendUdpReport() {
     buf += String(_waterPumpRunning);
     WriteLogEntry(buf);
 
-    buf = F(", diff: ");
+    buf = F("TemperatureDiff: ");
     buf += String(diff, 2);
     WriteLogEntry(buf);
 
