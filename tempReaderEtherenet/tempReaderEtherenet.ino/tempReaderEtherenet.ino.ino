@@ -81,7 +81,7 @@ void loop() {
     stringComplete = false;
   }  
 
-  SendConfiguration();
+ // SendConfiguration();
 }
 
 void connect() {
