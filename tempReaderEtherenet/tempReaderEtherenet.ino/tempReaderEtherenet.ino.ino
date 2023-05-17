@@ -38,17 +38,17 @@ String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_to
 void SendConfiguration(){
 /*
 
-Tank2Pump
-ReturnToTank
-RoofZone1
+
+
+
 RoofZone2
 SolarPump
 WaterPump
 
 */
-publishConfig("");
-publishConfig("");
-publishConfig("");
+publishConfig("WaterTank");
+publishConfig("Tank2Pump");
+publishConfig("ReturnToTank");
 publishConfig("");
 publishConfig("");
 publishConfig("");
