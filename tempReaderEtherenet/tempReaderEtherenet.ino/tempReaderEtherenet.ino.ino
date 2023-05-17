@@ -40,7 +40,7 @@ void setup() {
   publishConfig("RoofZone1");
 }
 
-const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
+const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"solar/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 
 void SendConfiguration() {
 
@@ -67,7 +67,7 @@ WaterPump
 void publishConfig(String name) {
   String c = configBase;
   c.replace("__","greg_" + name);
-  String topic = "homeassistant/sensor/greg_" + name + "/config";
+  String topic = "solar/sensor/greg_" + name + "/config";
   client.publish(topic, c);
   Serial.println(topic);
   Serial.println(c);
@@ -133,6 +133,6 @@ void SendUDPPacket(String message) {
     String value = message.substring(splitAt + 1, message.length());
     //  Serial.print("Name: " + name);
     //  Serial.println(", V: " + value);
-    client.publish("homeassistant/sensor/greg_" + name, value);
+    client.publish("solar/sensor/greg_" + name, value);
   }
 }
