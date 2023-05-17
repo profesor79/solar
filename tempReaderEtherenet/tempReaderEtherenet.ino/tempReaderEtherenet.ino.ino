@@ -35,7 +35,7 @@ void setup() {
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
 
-  SendConfiguration();
+  
 }
 
 const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
@@ -74,7 +74,7 @@ void loop() {
     inputString = "";
     stringComplete = false;
   }  
-  if(currentMillis % 50000==)
+  SendConfiguration();
 }
 
 void connect() {
