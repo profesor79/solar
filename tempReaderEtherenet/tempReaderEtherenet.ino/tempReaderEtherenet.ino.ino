@@ -46,7 +46,7 @@ SolarPump
 WaterPump
 
 */
-String config = configBase.re
+String config = configBase.replace("__", "WaterTank");
 
 }
 
