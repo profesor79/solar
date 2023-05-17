@@ -285,15 +285,15 @@ void SendUdpReport() {
     buf += String(roofToTankTemp, 2);
     WriteLogEntry(buf);
 
-    buf = F(", RoofZone1:");
+    buf = F("RoofZone1:");
     buf += String(roof1ZoneTemp, 2);
     WriteLogEntry(buf);
 
-    buf = F(", RoofZone2:");
+    buf = F("RoofZone2:");
     buf += String(roof2ZoneTemp, 2);
     WriteLogEntry(buf);
 
-    buf = F(", SolapPump:");
+    buf = F("SolapPump:");
     if (_solarPumpRunning)){
         buf += String(1);
       }
@@ -301,7 +301,7 @@ void SendUdpReport() {
 
     WriteLogEntry(buf);
 
-    buf = F(", WP: ");
+    buf = F("WP: ");
     buf += String(_waterPumpRunning);
     WriteLogEntry(buf);
 
