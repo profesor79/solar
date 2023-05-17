@@ -88,7 +88,7 @@ void loop() {
 
 void connect() {
   Serial.print("connecting...");
-  while (!client.connect("homeassistant", "", "")) {
+  while (!client.connect("arduino", "", "")) {
     Serial.print(".");
     delay(1000);
   }
