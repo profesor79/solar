@@ -278,8 +278,9 @@ void SendUdpReport() {
     buf += F("WaterTank:");
     buf += String(tankTemp, 2);
     WriteLogEntry(buf);
-    buf = F(", TP: ");
+    buf = F(", Tank2Pump:");
     buf += String(tank2Pump, 2);
+    WriteLogEntry(buf);
     buf += F(", RTT: ");
     buf += String(roofToTankTemp, 2);
     buf += F(", Z1: ");
