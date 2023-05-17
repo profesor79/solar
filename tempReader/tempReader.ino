@@ -277,13 +277,12 @@ void SendReport() {
     if (reportStep == 0 )
     {
       reportStep++;
-
       buf = F("WaterTank:");
       buf += String(tankTemp, 2);
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 1 }
+    if (reportStep == 1 )
     {
       reportStep++;
       buf = F("Tank2Pump:");
@@ -291,7 +290,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 2 }
+    if (reportStep == 2 )
     {
       reportStep++;
       buf = F("ReturnToTank:");
@@ -300,7 +299,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 3 }
+    if (reportStep == 3)
     {
       reportStep++;
       buf = F("RoofZone1:");
