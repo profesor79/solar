@@ -1,5 +1,7 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <SoftwareSerial.h>
+
 
 
 const unsigned long SensorCheckInterval = 10000;
