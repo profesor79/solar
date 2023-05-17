@@ -89,7 +89,7 @@ void SendUDPPacket(String message) {
   String value = message.substring(splitAt+1, message.length());
   Serial.println(name);
   Serial.println(value);
-  
+   client.publish("hello", message);    
 
 }
 
