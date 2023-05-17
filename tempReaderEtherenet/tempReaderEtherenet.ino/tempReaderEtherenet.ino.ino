@@ -118,7 +118,7 @@ void SendUDPPacket(String message) {
   String name = message.substring(0,splitAt);
   String value = message.substring(splitAt+1, message.length());
   Serial.print("Name: " + name);
-  //  Serial.println(", V: " + value);
+    Serial.println(", V: " + value);
    client.publish("homeassistant/sensor/" + name, value);    
   }
   
