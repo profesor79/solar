@@ -56,7 +56,7 @@ String c = configBase;
 c.replace("__", name);
 String topic ="homeassistant/sensor/" + name+"/config";
 client.publish(topic, c);    
-
+Serial.println(topic);
 Serial.println(c);
 
 }
