@@ -71,6 +71,6 @@ void SendUDPPacket(String message) {
   Udp.endPacket();
   Serial.print(message);
 
-  myString.indexOf(val)
+  u splmessage.indexOf(val)
 }
 
