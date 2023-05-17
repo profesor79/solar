@@ -68,7 +68,7 @@ WaterPump
 
 void publishConfig(String name){
 String c = configBase;
-c.replace("__", ("_" + name));
+c.replace("__",  name);
 String topic ="homeassistant/sensor/greg_" + name+"/config";
 client.publish(topic, c);    
 Serial.println(topic);
