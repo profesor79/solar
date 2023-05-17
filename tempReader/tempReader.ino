@@ -332,7 +332,7 @@ void SwitchOnSolarPump() {
   digitalWrite(solarPumpMotorPin, LOW);
   if (!_solarPumpRunning) {
     _solarPumpRunning = true;
-    SendUDPPacket("Solar Pump on");
+    SendUDPPacket("SolarPump:1");
   }
 }
 
