@@ -275,9 +275,10 @@ void SendUdpReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    buf += F("Tank: ");
+    buf += F("WaterTank:");
     buf += String(tankTemp, 2);
-    buf += F(", TP: ");
+    WriteLogEntry(buf);
+    buf = F(", TP: ");
     buf += String(tank2Pump, 2);
     buf += F(", RTT: ");
     buf += String(roofToTankTemp, 2);
