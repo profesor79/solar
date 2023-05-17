@@ -297,17 +297,20 @@ void SendUdpReport() {
     if (_solarPumpRunning)){
         buf += String(1);
       }
-    else { buf += String(0); }
+    else { 
+      buf += String(0);
+       }
 
     WriteLogEntry(buf);
 
     buf = F("WaterPump: ");
-if (_waterPumpRunning)){
+    if (_waterPumpRunning)){
         buf += String(1);
       }
-    else { buf += String(0); }
+    else {
+       buf += String(0); }
 
-    
+
     WriteLogEntry(buf);
 
     buf = F("TemperatureDiff:");
