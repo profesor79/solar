@@ -308,7 +308,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 4 }
+    if (reportStep == 4)
     {
       reportStep++;
       buf = F("RoofZone2:");
@@ -317,7 +317,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 5 }
+    if (reportStep == 5)
     {
       reportStep++;
       buf = F("SolarPump:");
@@ -329,7 +329,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 6 }
+    if (reportStep == 6)
     {
       reportStep++;
       buf = F("WaterPump:");
