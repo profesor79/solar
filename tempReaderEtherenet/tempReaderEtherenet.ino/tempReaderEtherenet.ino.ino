@@ -22,7 +22,7 @@ MQTTClient client;
 
 void setup() {
   Serial.begin(9600);
-  Serial1.begin(115200);
+  Serial1.begin(9600);
   // start the Ethernet
   Ethernet.begin(mac, deviceIp);
   // start UDP
