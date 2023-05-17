@@ -54,8 +54,9 @@ publishConfig("RoofZone1");
 void publishConfig(String name){
 String c = configBase;
 c.replace("__", name);
-String topic =
-client.publish("homeassistant/sensor/" + name+"/config", c);    
+String topic ="homeassistant/sensor/" + name+"/config";
+client.publish(topic, c);    
+
 Serial.println(c);
 
 }
