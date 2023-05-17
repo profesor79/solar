@@ -369,6 +369,6 @@ void FlipFlopPumps() {
     _solarPumpRunning = false;
     SendUDPPacket("WaterPump:1");
   } else {
-    SendUDPPacket("WaterPump OFF");
+    SendUDPPacket("WaterPump:0");
   }
 }
