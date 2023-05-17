@@ -66,7 +66,7 @@ WaterPump
 
 void publishConfig(String name) {
   String c = configBase;
-  c.replace("__","greg_" + name);
+  c.replace("__", "greg_" + name);
   String topic = "solar/sensor/greg_" + name + "/config";
   client.publish(topic, c);
   Serial.println(topic);
@@ -116,7 +116,7 @@ void serialEvent1() {
   }
 }
 
-void PublishMessageOnTopic(String message){
+void PublishMessageOnTopic(String message) {
   short splitAt = message.indexOf(":");
 
   if (splitAt > 0) {
@@ -125,9 +125,8 @@ void PublishMessageOnTopic(String message){
     //  Serial.print("Name: " + name);
     //  Serial.println(", V: " + value);
     client.publish("solar/sensor/greg_" + name, value);
-
+  }
 }
-
 void SendUDPPacket(String message) {
   int len = message.length() + 1;
   char repBuff[len];
@@ -137,9 +136,5 @@ void SendUDPPacket(String message) {
   Udp.write(repBuff);
   Udp.endPacket();
   //Serial.print(message);
-
-  
-  
-
-  }
+}
 }
