@@ -71,6 +71,7 @@ void loop() {
     inputString = "";
     stringComplete = false;
   }  
+  if(currentMillis )
 }
 
 void connect() {
