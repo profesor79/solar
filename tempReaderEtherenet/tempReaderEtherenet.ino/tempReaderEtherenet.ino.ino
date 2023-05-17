@@ -34,9 +34,9 @@ void setup() {
   SendConfiguration();
 }
 
-String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon": "mdi:temperature-celsius" }";
+String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 void SendConfiguration(){
-
+//
 
 }
 
