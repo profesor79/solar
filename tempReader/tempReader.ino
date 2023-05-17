@@ -314,9 +314,7 @@ void SendUdpReport() {
     buf = F("TemperatureDiff:");
     buf += String(diff, 2);
     WriteLogEntry(buf);
-
-
-    WriteLogEntry(buf);
+        
     _udpSent = true;
   }
 }
