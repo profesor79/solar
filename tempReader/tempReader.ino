@@ -24,6 +24,12 @@ short solarPumpMotorPin = 7;     //32;
 short solarPumpVoltagePin = 11;  //37;
 short waterCutOffPin = 12;       //  35;  //black cable on board
 
+const byte rxPin = 4;
+const byte txPin = 5;
+
+// Set up a new SoftwareSerial object
+SoftwareSerial mySerial (rxPin, txPin);
+
 
 const long day = 86400000;  // 86400000 milliseconds in a day
 const long hour = 3600000;  // 3600000 milliseconds in an hour
