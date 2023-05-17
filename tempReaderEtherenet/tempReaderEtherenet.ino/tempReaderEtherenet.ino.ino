@@ -46,11 +46,7 @@ SolarPump
 WaterPump
 
 */
-//RoofZone1
-//RoofZone2
 
-//SolarPump
-//WaterPump
 
 }
 
