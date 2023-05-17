@@ -14,7 +14,7 @@ String inputString = "";      // a String to hold incoming data
 bool stringComplete = false;  // whether the string is complete
 
 unsigned long currentMillis = 0;  // stores the value of millis() in each iteration of loop()
-unsigned long currentMillis = 0;
+unsigned long lastConfigSendTime= 100;
 EthernetClient net;
 MQTTClient client;
 
