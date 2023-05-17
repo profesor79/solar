@@ -44,6 +44,15 @@ void loop() {
   }  
 }
 
+void connect() {
+  Serial.print("connecting...");
+  while (!client.connect("arduino", "", "")) {
+    Serial.print(".");
+    delay(1000);
+  }
+
+  Serial.println("\nconnected!"); 
+}
 
 /*
   SerialEvent occurs whenever a new data comes in the hardware serial RX. This
