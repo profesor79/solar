@@ -34,7 +34,7 @@ void setup() {
   SendConfiguration();
 }
 
-String configBase = SendConfiguration();
+String configBase = "";
 void SendConfiguration(){
 
 
