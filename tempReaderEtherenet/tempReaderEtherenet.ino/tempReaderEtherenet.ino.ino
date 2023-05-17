@@ -40,7 +40,7 @@ void setup() {
   publishConfig("RoofZone1");
 }
 
-const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/greg___\",\"icon\": \"mdi:temperature-celsius\" }";
+const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"homeassistant/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
 
 void SendConfiguration() {
 
