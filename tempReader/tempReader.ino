@@ -296,6 +296,7 @@ void SendUdpReport() {
     WriteLogEntry(buf);
     
     buf = F(", SolapPump: ");    
+    if()
     buf += String(_solarPumpRunning);
     WriteLogEntry(buf);
     
