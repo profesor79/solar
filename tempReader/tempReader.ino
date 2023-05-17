@@ -293,7 +293,7 @@ void SendUdpReport() {
     buf += String(roof2ZoneTemp, 2);
     WriteLogEntry(buf);
 
-    buf = F("SolapPump:");
+    buf = F("SolarPump:");
     if (_solarPumpRunning == true) {
       buf += String(1);
     } else {
