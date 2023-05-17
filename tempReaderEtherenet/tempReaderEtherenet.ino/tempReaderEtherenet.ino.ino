@@ -34,10 +34,6 @@ void setup() {
   // reserve 200 bytes for the inputString:
   inputString.reserve(200);
 
-  publishConfig("WaterTank");
-  publishConfig("Tank2Pump");
-  publishConfig("ReturnToTank");
-  publishConfig("RoofZone1");
 }
 
 const String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_topic\": \"solar/sensor/__\",\"icon\": \"mdi:temperature-celsius\" }";
