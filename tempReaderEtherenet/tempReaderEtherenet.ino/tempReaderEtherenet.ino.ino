@@ -63,6 +63,7 @@ Serial.println(c);
 }
 
 void loop() {
+  currentMillis = millis();  // capture the latest value of millis()
   if (stringComplete) {
     //Serial.println(inputString);
     SendUDPPacket(inputString);
