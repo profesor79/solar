@@ -49,16 +49,6 @@ void loop() {
   
 }
 
-void connect() {
-  Serial.print("connecting...");
-  while (!client.connect("arduino", "", "")) {
-    Serial.print(".");
-    delay(1000);
-  }
-
-  Serial.println("\nconnected!");
-}
-
 /*
   SerialEvent occurs whenever a new data comes in the hardware serial RX. This
   routine is run between each time loop() runs, so using delay inside loop can
@@ -75,17 +65,6 @@ void serialEvent1() {
     if (inChar == '\n') {
       stringComplete = true;
     }
-  }
-}
-
-void PublishMessageOnTopic(String message) {
-  short splitAt = message.indexOf(":");
-  if (splitAt > 0) {
-    String name = message.substring(0, splitAt);
-    String value = message.substring(splitAt + 1, message.length());
-    //  Serial.print("Name: " + name);
-    //  Serial.println(", V: " + value);
-    client.publish("solar/sensor/greg_" + name, value);
   }
 }
 
