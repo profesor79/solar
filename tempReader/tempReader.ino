@@ -100,7 +100,7 @@ void loop() {
   FlipFlopPumps();
   SendReadTempCommand();
   GetTemperatures();
-  SendUdpReport();
+  SendReport();
   ManageSolarPumpStateByTemperature();
 
   // PlayRelaySound();
@@ -266,7 +266,7 @@ char *addr2str(DeviceAddress deviceAddress) {
 void SendStateMessage() {
 }
 
-void SendUdpReport() {
+void SendReport() {
   if (parametersSend) {
     return;
   }
