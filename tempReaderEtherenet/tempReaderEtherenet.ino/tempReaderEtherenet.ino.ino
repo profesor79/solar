@@ -73,6 +73,7 @@ void SendUDPPacket(String message) {
 
   short splitAt = message.indexOf(":");
   String name = message.substring(0,splitAt);
-  String value = message.substring()
+  String value = message.substring(splitAt, message.length());
+
 }
 
