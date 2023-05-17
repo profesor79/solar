@@ -244,7 +244,7 @@ void GetTemperatures() {
 
       //2nd sensor group here
       //   roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, da, roof2ZoneTemp);
-      //  roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
+      roof2ZoneTemp = readTemperaturyBySensorAndAddress(sensors2, zone2Adress, roof2ZoneTemp);
 
       _temperatureWaseReadInThisCycle = true;
       parametersSend = false;
