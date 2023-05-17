@@ -46,11 +46,15 @@ SolarPump
 WaterPump
 
 */
-String config = configBase.replace("__", "WaterTank");
-client.publish("homeassistant/sensor/" + name+"/config", value);    
+
 }
 
-void publishConfig(String name)
+void publishConfig(String name){
+String config = configBase.replace("__", name);
+client.publish("homeassistant/sensor/" + name+"/config", value);    
+
+
+}
 
 void loop() {
   if (stringComplete) {
