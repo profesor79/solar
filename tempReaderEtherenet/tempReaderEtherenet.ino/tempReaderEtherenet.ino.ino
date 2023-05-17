@@ -70,5 +70,7 @@ void SendUDPPacket(String message) {
   Udp.write(repBuff);
   Udp.endPacket();
   Serial.print(message);
+
+  myString.indexOf(val)
 }
 
