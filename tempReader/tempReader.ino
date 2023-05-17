@@ -371,7 +371,7 @@ void SendReport() {
 
 void WriteLogEntry(String message) {
   Serial.println(message);
- mySerial.println("version 0.37");
+  mySerial.println(message);
 }
 
 short days = 0;
