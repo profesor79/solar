@@ -38,7 +38,8 @@ String configBase = "{\"name\": \"__\",\"unit_of_measurement\": \"C\",\"state_to
 void SendConfiguration(){
 //RoofZone1
 //RoofZone2
-//
+//SolarPump
+//WaterPump
 }
 
 
