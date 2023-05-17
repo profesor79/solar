@@ -283,22 +283,23 @@ void SendUdpReport() {
     buf += String(tank2Pump, 2);
     WriteLogEntry(buf);
     
-    buf = F("ReturnToTank: ");
+    buf = F("ReturnToTank:");
     buf += String(roofToTankTemp, 2);
     WriteLogEntry(buf);
     
-    buf = F(", RoofZone1: ");
+    buf = F(", RoofZone1:");
     buf += String(roof1ZoneTemp, 2);
     WriteLogEntry(buf);
     
-    buf = F(", RoofZone2: ");
+    buf = F(", RoofZone2:");
     buf += String(roof2ZoneTemp, 2);
     WriteLogEntry(buf);
     
     buf = F(", SolapPump:");    
     if(_solarPumpRunning)){
 buf += String(1);
-    }
+    }else)
+    {}
     
     WriteLogEntry(buf);
     
