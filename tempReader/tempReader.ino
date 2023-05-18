@@ -146,7 +146,6 @@ void ReadPowerOnState() {
 
   // water pump is enabled always and controlled by pressure switch
   bool tmpIsPowerOn = (digitalRead(waterPumpPowerOnPin) == LOW);
-
   if (tmpIsPowerOn != _waterPumpPowerOn) {
     _waterPumpPowerOn = tmpIsPowerOn;
     if (_waterPumpPowerOn == true) {
