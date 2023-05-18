@@ -389,7 +389,7 @@ void SendReport() {
 if (reportStep == 7) {
       reportStep++;
       buf = F("SystemPowerOn:");
-      if (_waterPumpPowerOn == true) {
+      if (_systemPowerOn == true) {
         buf += String(1);
       } else {
         buf += String(0);
