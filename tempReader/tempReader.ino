@@ -86,8 +86,8 @@ void setup() {
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
-  pinMode(waterCutOffPin, INPUT);
-  pinMode(waterCutOffPin, INPUT);
+  pinMode(waterPumpVoltagePin, INPUT);
+  pinMode(sol, INPUT);
 
       // Define pin modes for TX and RX
     pinMode(rxPin, INPUT);
