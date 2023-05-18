@@ -13,7 +13,7 @@ const float mivAverageTempDiffForFlush = 5.00;
 const float tempDiffToStartWaterPump = 12.00;
 const float tempDiffToStoptWaterPump = 3.00;
 
-const float _maxTemp = 45.00;
+const float _maxTemp = 48.00;
 
 // define pins
 const byte tempSensorsPin = 2;        //49;  //purple cable on board
