@@ -398,7 +398,7 @@ if (reportStep == 7) {
 if (reportStep == 8) {
       reportStep++;
       buf = F("SolarPumpVoltage:");
-      if (_waterPumpRunning == true) {
+      if (sol == true) {
         buf += String(1);
       } else {
         buf += String(0);
