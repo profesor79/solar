@@ -137,10 +137,10 @@ void ReadVoltageState() {
   bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
   if (tmpIsPumpRunning != _solarPumpRunning) {
     _solarPumpVoltage = tmpIsPumpRunning;
-    if (_solarPumpRunning == true) {
-      WriteLogEntry("SolarPump:1");
+    if (_solarPumpVoltage == true) {
+      WriteLogEntry("SolarPumpVoltage:1");
     } else {
-      WriteLogEntry("SolarPump:0");
+      WriteLogEntry("SolarPumpVoltage:0");
     }
   }
 
