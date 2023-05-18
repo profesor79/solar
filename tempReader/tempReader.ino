@@ -384,6 +384,28 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
+if (reportStep == 7) {
+      reportStep++;
+      buf = F("WaterPump:");
+      if (_waterPumpRunning == true) {
+        buf += String(1);
+      } else {
+        buf += String(0);
+      }
+      WriteLogEntry(buf);
+    }
+
+if (reportStep == 6) {
+      reportStep++;
+      buf = F("WaterPump:");
+      if (_waterPumpRunning == true) {
+        buf += String(1);
+      } else {
+        buf += String(0);
+      }
+      WriteLogEntry(buf);
+    }
+
     if (reportStep == 7) {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
