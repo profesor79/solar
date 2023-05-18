@@ -117,6 +117,7 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
+  
   FlipFlopPumps();
   SendReadTempCommand();
   GetTemperatures();
