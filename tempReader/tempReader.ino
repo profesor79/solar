@@ -127,6 +127,26 @@ void loop() {
   // PlayRelaySound();
 }
 
+void ReadVoltageState(){
+bool tmpIsPumpRunning = (digitalRead(waterCutOffPin) == LOW);
+  if (tmpIsPumpRunning == _waterPumpRunning) {
+    // do nothing here
+    return;
+  }
+
+  _waterPumpRunning = tmpIsPumpRunning;
+
+  if (_waterPumpRunning) {
+    SwitchOffSolarPump();
+    _solarPumpRunning = false;
+    WriteLogEntry("WaterPump:1");
+  } else {
+    WriteLogEntry("WaterPump:0");
+  }
+
+}
+
+
 void SetSensorsResolution() {
   // setting resolution to 9 bits as this helps in a star topology
 
