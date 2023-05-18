@@ -145,9 +145,9 @@ bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
   if (tmpIsVoltage != _waterPumpVoltage) {
     _waterPumpVoltage = tmpIsVoltage;
     if(_waterPumpVoltage==true){
-      WriteLogEntry("SolarPump:1");
+      WriteLogEntry("PumpVoltage:1");
     }else {
-      WriteLogEntry("SolarPump:0");
+      WriteLogEntry("PumpVoltage:0");
     }    
     
 
