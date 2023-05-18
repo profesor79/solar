@@ -134,7 +134,7 @@ bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
     if(_solarPumpRunning==true){
       WriteLogEntry("SolarPump:1");
     }else {
-    statements
+      WriteLogEntry("SolarPump:0");
     }
     
   }
