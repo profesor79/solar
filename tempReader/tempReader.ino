@@ -148,9 +148,9 @@ void ReadVoltageState() {
   if (tmpIsVoltage != _waterPumpVoltage) {
     _waterPumpVoltage = tmpIsVoltage;
     if (_waterPumpVoltage == true) {
-      WriteLogEntry("PumpVoltage:1");
+      WriteLogEntry("SystemVoltage:1");
     } else {
-      WriteLogEntry("PumpVoltage:0");
+      WriteLogEntry("SystemVoltage:0");
     }
   }
 }
