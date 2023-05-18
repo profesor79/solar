@@ -83,6 +83,12 @@ bool _temperatureWaseReadInThisCycle = true;
 bool parametersSend = false;
 
 void setup() {
+  pinMode(solarPumpMotorPin, OUTPUT);
+  pinMode(waterPumpMotorPin, OUTPUT);
+  pinMode(waterCutOffPin, INPUT);
+  pinMode(waterCutOffPin, INPUT);
+  pinMode(waterCutOffPin, INPUT);
+
       // Define pin modes for TX and RX
     pinMode(rxPin, INPUT);
     pinMode(txPin, OUTPUT);
@@ -99,10 +105,7 @@ void setup() {
   Serial.println("starting sensors 2 ");
   sensors2.begin();
   Serial.println("sensors started ");
-  pinMode(solarPumpMotorPin, OUTPUT);
-  pinMode(waterPumpMotorPin, OUTPUT);
-  pinMode(waterCutOffPin, INPUT);
-
+  
   StopRelays();
   SetSensorsResolution();
   PrintSensorAddresses();
