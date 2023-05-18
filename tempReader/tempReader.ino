@@ -80,6 +80,7 @@ unsigned long _lastWaterPumpRunTime;
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
 bool _waterPumpVoltage = false;
+bool _systemVoltage = false;
 bool _solarPumpVoltage = false;
 bool _temperatureWaseReadInThisCycle = true;
 bool parametersSend = false;
