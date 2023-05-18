@@ -131,7 +131,8 @@ void ReadVoltageState(){
 bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
   if (tmpIsPumpRunning != _solarPumpRunning) {
     _solarPumpRunning = tmpIsPumpRunning;
-
+    if(_solarPumpRunning==true)
+    WriteLogEntry("WaterPump:1");
   }
 
   _waterPumpRunning = tmpIsPumpRunning;
