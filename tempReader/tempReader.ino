@@ -142,7 +142,7 @@ bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
 // water pump is enabled always and controlled by pressure switch
   bool tmpIsVoltage == (digitalRead(waterPumpVoltagePin) == LOW);
 
-  if (tmpIsVoltage!=) {
+  if (tmpIsVoltage!=_waterPumpVoltage) {
     SwitchOffSolarPump();
     _solarPumpRunning = false;
     WriteLogEntry("WaterPump:1");
