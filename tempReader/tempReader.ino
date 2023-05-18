@@ -110,6 +110,8 @@ void setup() {
   StopRelays();
   SetSensorsResolution();
   PrintSensorAddresses();
+
+  
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
 }
