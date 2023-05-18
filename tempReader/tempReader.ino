@@ -117,7 +117,7 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
-  
+  ReadVoltageState();
   FlipFlopPumps();
   SendReadTempCommand();
   GetTemperatures();
