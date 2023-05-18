@@ -28,7 +28,7 @@ const byte rxPin = 4;
 const byte txPin = 5;
 
 // Set up a new SoftwareSerial object
-SoftwareSerial mySerial (rxPin, txPin);
+SoftwareSerial mySerial(rxPin, txPin);
 
 
 const long day = 86400000;  // 86400000 milliseconds in a day
@@ -90,13 +90,13 @@ void setup() {
   pinMode(waterPumpVoltagePin, INPUT);
   pinMode(solarPumpVoltagePin, INPUT);
 
-      // Define pin modes for TX and RX
-    pinMode(rxPin, INPUT);
-    pinMode(txPin, OUTPUT);
-    
+  // Define pin modes for TX and RX
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+
   // Set the baud rate for the SoftwareSerial object
   mySerial.begin(9600);
-  
+
   Serial.begin(9600);
   Serial.println("version 0.37");
   mySerial.println("version 0.37");
@@ -106,7 +106,7 @@ void setup() {
   Serial.println("starting sensors 2 ");
   sensors2.begin();
   Serial.println("sensors started ");
-  
+
   StopRelays();
   SetSensorsResolution();
   PrintSensorAddresses();
@@ -128,29 +128,28 @@ void loop() {
   // PlayRelaySound();
 }
 
-void ReadVoltageState(){
-bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
+void ReadVoltageState() {
+  bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
   if (tmpIsPumpRunning != _solarPumpRunning) {
     _solarPumpRunning = tmpIsPumpRunning;
-    if(_solarPumpRunning==true){
+    if (_solarPumpRunning == true) {
       WriteLogEntry("SolarPump:1");
-    }else {
+    } else {
       WriteLogEntry("SolarPump:0");
-    }    
+    }
   }
 
-// water pump is enabled always and controlled by pressure switch
+  // water pump is enabled always and controlled by pressure switch
   bool tmpIsVoltage == (digitalRead(waterPumpVoltagePin) == LOW);
 
   if (tmpIsVoltage != _waterPumpVoltage) {
     _waterPumpVoltage = tmpIsVoltage;
-    if(_waterPumpVoltage==true){
+    if (_waterPumpVoltage == true) {
       WriteLogEntry("PumpVoltage:1");
-    }else {
+    } else {
       WriteLogEntry("PumpVoltage:0");
-    }    
-    
-
+    }
+  }
 }
 
 
@@ -322,24 +321,21 @@ void SendReport() {
   if (currentMillis > _lastSensorCheckTime + SensorWaitInterval & _lastSensorCheckTime > 0) {
 
     String buf;
-    if (reportStep == 0 )
-    {
+    if (reportStep == 0) {
       reportStep++;
       buf = F("WaterTank:");
       buf += String(tankTemp, 2);
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 1 )
-    {
+    if (reportStep == 1) {
       reportStep++;
       buf = F("Tank2Pump:");
       buf += String(tank2Pump, 2);
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 2 )
-    {
+    if (reportStep == 2) {
       reportStep++;
       buf = F("ReturnToTank:");
       buf += String(roofToTankTemp, 2);
@@ -347,8 +343,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 3)
-    {
+    if (reportStep == 3) {
       reportStep++;
       buf = F("RoofZone1:");
       buf += String(roof1ZoneTemp, 2);
@@ -356,8 +351,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 4)
-    {
+    if (reportStep == 4) {
       reportStep++;
       buf = F("RoofZone2:");
       buf += String(roof2ZoneTemp, 2);
@@ -365,8 +359,7 @@ void SendReport() {
     }
 
 
-    if (reportStep == 5)
-    {
+    if (reportStep == 5) {
       reportStep++;
       buf = F("SolarPump:");
       if (_solarPumpRunning == true) {
@@ -377,8 +370,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 6)
-    {
+    if (reportStep == 6) {
       reportStep++;
       buf = F("WaterPump:");
       if (_waterPumpRunning == true) {
@@ -389,8 +381,7 @@ void SendReport() {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 7)
-    {
+    if (reportStep == 7) {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
       WriteLogEntry(buf);
