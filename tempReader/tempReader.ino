@@ -135,8 +135,8 @@ void loop() {
 
 void ReadPowerOnState() {
   bool tmpIsPowerOn = (digitalRead(solarPumpPowerOnPin) == LOW);
-  if (tmpIsPumpRunning != _solarPumpPowerOn) {
-    _solarPumpPowerOn = tmpIsPumpRunning;
+  if (tmpIsPowerOn != _solarPumpPowerOn) {
+    _solarPumpPowerOn = tmpIsPowerOn;
     if (_solarPumpPowerOn == true) {
       WriteLogEntry("SolarPumpPowerOn:1");
     } else {
