@@ -128,7 +128,7 @@ void loop() {
 }
 
 void ReadVoltageState(){
-bool tmpIsPumpRunning = (digitalRead(waterCutOffPin) == LOW);
+bool tmpIsPumpRunning = (digitalRead(sol) == LOW);
   if (tmpIsPumpRunning == _waterPumpRunning) {
     // do nothing here
     return;
