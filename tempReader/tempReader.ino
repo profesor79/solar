@@ -128,8 +128,8 @@ void loop() {
 }
 
 void ReadVoltageState(){
-bool tmpIsPumpRunning = (digitalRead(sol) == LOW);
-  if (tmpIsPumpRunning == _waterPumpRunning) {
+bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
+  if (tmpIsPumpRunning == _solarPumpRunning) {
     // do nothing here
     return;
   }
