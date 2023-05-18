@@ -386,7 +386,7 @@ void SendReport() {
 
 if (reportStep == 7) {
       reportStep++;
-      buf = F("WaterPumpVoltage:");
+      buf = F("SystemVoltage:");
       if (_waterPumpVoltage == true) {
         buf += String(1);
       } else {
@@ -395,7 +395,7 @@ if (reportStep == 7) {
       WriteLogEntry(buf);
     }
 
-if (reportStep == 6) {
+if (reportStep == 8) {
       reportStep++;
       buf = F("WaterPump:");
       if (_waterPumpRunning == true) {
