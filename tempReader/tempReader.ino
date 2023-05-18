@@ -154,6 +154,20 @@ void ReadPowerOnState() {
       WriteLogEntry("SystemPowerOn:0");
     }
   }
+
+
+// water pump is enabled always and controlled by pressure switch
+  tmpIsPowerOn = (digitalRead(cut) == LOW);
+  if (tmpIsPowerOn != _waterPumpPowerOn) {
+    _waterPumpPowerOn = tmpIsPowerOn;
+    if (_waterPumpPowerOn == true) {
+      WriteLogEntry("SystemPowerOn:1");
+    } else {
+      WriteLogEntry("SystemPowerOn:0");
+    }
+  }
+
+
 }
 
 
