@@ -19,9 +19,9 @@ const float _maxTemp = 48.00;
 const byte tempSensorsPin = 2;        //49;  //purple cable on board
 const byte temp2SensorsPin = 3;       //41;
 const byte waterPumpMotorPin = 6;     //31;
-const byte waterPumpVoltagePin = 10;  //36;
+const byte waterPumpPowerOnPin = 10;  //36;
 const byte solarPumpMotorPin = 7;     //32;
-const byte solarPumpVoltagePin = 11;  //37;
+const byte solarPumpPowerOnPin = 11;  //37;
 const byte waterCutOffPin = 12;       //  35;  //black cable on board
 
 const byte rxPin = 4;
@@ -79,9 +79,9 @@ unsigned long _lastWaterPumpRunTime;
 // state section
 bool _solarPumpRunning = false;
 bool _waterPumpRunning = false;
-bool _waterPumpVoltage = false;
-bool _systemVoltage = false;
-bool _solarPumpVoltage = false;
+bool _waterPumpPowerOn = false;
+bool _systemPowerOn = false;
+bool _solarPumpPowerOn = false;
 bool _temperatureWaseReadInThisCycle = true;
 bool parametersSend = false;
 
@@ -89,8 +89,8 @@ void setup() {
   pinMode(solarPumpMotorPin, OUTPUT);
   pinMode(waterPumpMotorPin, OUTPUT);
   pinMode(waterCutOffPin, INPUT);
-  pinMode(waterPumpVoltagePin, INPUT);
-  pinMode(solarPumpVoltagePin, INPUT);
+  pinMode(waterPumpPowerOnPin, INPUT);
+  pinMode(solarPumpPowerOnPin, INPUT);
 
   // Define pin modes for TX and RX
   pinMode(rxPin, INPUT);
@@ -113,8 +113,8 @@ void setup() {
   SetSensorsResolution();
   PrintSensorAddresses();
 
-  // read voltage so we can see that the system re-started
-  ReadVoltageState();
+  // read PowerOn so we can see that the system re-started
+  ReadPowerOnState();
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
 }
@@ -123,7 +123,7 @@ void setup() {
 
 void loop() {
   currentMillis = millis();  // capture the latest value of millis()
-  ReadVoltageState();
+  ReadPowerOnState();
   FlipFlopPumps();
   SendReadTempCommand();
   GetTemperatures();
@@ -133,26 +133,26 @@ void loop() {
   // PlayRelaySound();
 }
 
-void ReadVoltageState() {
-  bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
+void ReadPowerOnState() {
+  bool tmpIsPumpRunning = (digitalRead(solarPumpPowerOnPin) == LOW);
   if (tmpIsPumpRunning != _solarPumpRunning) {
-    _solarPumpVoltage = tmpIsPumpRunning;
-    if (_solarPumpVoltage == true) {
-      WriteLogEntry("SolarPumpVoltage:1");
+    _solarPumpPowerOn = tmpIsPumpRunning;
+    if (_solarPumpPowerOn == true) {
+      WriteLogEntry("SolarPumpPowerOn:1");
     } else {
-      WriteLogEntry("SolarPumpVoltage:0");
+      WriteLogEntry("SolarPumpPowerOn:0");
     }
   }
 
   // water pump is enabled always and controlled by pressure switch
-  bool tmpIsVoltage = (digitalRead(waterPumpVoltagePin) == LOW);
+  bool tmpIsPowerOn = (digitalRead(waterPumpPowerOnPin) == LOW);
 
-  if (tmpIsVoltage != _waterPumpVoltage) {
-    _waterPumpVoltage = tmpIsVoltage;
-    if (_waterPumpVoltage == true) {
-      WriteLogEntry("SystemVoltage:1");
+  if (tmpIsPowerOn != _waterPumpPowerOn) {
+    _waterPumpPowerOn = tmpIsPowerOn;
+    if (_waterPumpPowerOn == true) {
+      WriteLogEntry("SystemPowerOn:1");
     } else {
-      WriteLogEntry("SystemVoltage:0");
+      WriteLogEntry("SystemPowerOn:0");
     }
   }
 }
@@ -388,8 +388,8 @@ void SendReport() {
 
 if (reportStep == 7) {
       reportStep++;
-      buf = F("SystemVoltage:");
-      if (_waterPumpVoltage == true) {
+      buf = F("SystemPowerOn:");
+      if (_waterPumpPowerOn == true) {
         buf += String(1);
       } else {
         buf += String(0);
@@ -399,7 +399,7 @@ if (reportStep == 7) {
 
 if (reportStep == 8) {
       reportStep++;
-      buf = F("SolarPumpVoltage:");
+      buf = F("SolarPumpPowerOn:");
       if (sol == true) {
         buf += String(1);
       } else {
