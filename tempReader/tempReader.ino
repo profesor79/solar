@@ -138,7 +138,7 @@ bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
     }    
   }
 
-// water pump is enabled always and 
+// water pump is enabled always and controlled by pressure switch
   bool tmpIsVoltage == (digitalRead(waterPumpVoltagePin) == LOW);
 
   if (_waterPumpRunning) {
