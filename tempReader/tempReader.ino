@@ -420,7 +420,7 @@ if (reportStep == 9) {
       WriteLogEntry(buf);
     }
 
-    if (reportStep == 7) {
+    if (reportStep == 10) {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
       WriteLogEntry(buf);
