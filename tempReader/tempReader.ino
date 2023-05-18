@@ -400,7 +400,7 @@ if (reportStep == 7) {
 if (reportStep == 8) {
       reportStep++;
       buf = F("SolarPumpPowerOn:");
-      if (sol == true) {
+      if (_so == true) {
         buf += String(1);
       } else {
         buf += String(0);
