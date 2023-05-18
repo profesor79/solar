@@ -111,7 +111,8 @@ void setup() {
   SetSensorsResolution();
   PrintSensorAddresses();
 
-  
+  // read voltage so we can see that the system re-started
+  ReadVoltageState();
   //switch on water pump
   digitalWrite(waterPumpMotorPin, LOW);
 }
