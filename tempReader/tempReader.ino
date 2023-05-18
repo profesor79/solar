@@ -138,7 +138,7 @@ bool tmpIsPumpRunning = (digitalRead(solarPumpVoltagePin) == LOW);
     }    
   }
 
-  
+  bool tmpIsVoltage =
 
   if (_waterPumpRunning) {
     SwitchOffSolarPump();
