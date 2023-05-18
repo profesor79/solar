@@ -408,6 +408,18 @@ if (reportStep == 8) {
       WriteLogEntry(buf);
     }
 
+
+if (reportStep == 9) {
+      reportStep++;
+      buf = F("WaterPumpPowerOn:");
+      if (_solarPumpPowerOn == true) {
+        buf += String(1);
+      } else {
+        buf += String(0);
+      }
+      WriteLogEntry(buf);
+    }
+
     if (reportStep == 7) {
       buf = F("TemperatureDiff:");
       buf += String(diff, 2);
