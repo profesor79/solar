@@ -161,9 +161,9 @@ void ReadPowerOnState() {
   if (tmpIsPowerOn != _waterPumpPowerOn) {
     _waterPumpPowerOn = tmpIsPowerOn;
     if (_waterPumpPowerOn == true) {
-      WriteLogEntry("SystemPowerOn:1");
+      WriteLogEntry("WaterPumpPowerOn:1");
     } else {
-      WriteLogEntry("SystemPowerOn:0");
+      WriteLogEntry("WaterPumpPowerOn:0");
     }
   }
 
