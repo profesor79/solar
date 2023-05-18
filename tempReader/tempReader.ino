@@ -140,7 +140,7 @@ void ReadVoltageState() {
   }
 
   // water pump is enabled always and controlled by pressure switch
-  bool tmpIsVoltage == (digitalRead(waterPumpVoltagePin) == LOW);
+  bool tmpIsVoltage = (digitalRead(waterPumpVoltagePin) == LOW);
 
   if (tmpIsVoltage != _waterPumpVoltage) {
     _waterPumpVoltage = tmpIsVoltage;
