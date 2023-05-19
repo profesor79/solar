@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "oO6LPAU8zKu8QWwqzOj+fLlCSBntE6VuoZMcJBZiiisn1SYiScRvv7oUdQpxzGxYnAJiVD5fNp1PfPJ9/jscbg==",
+  "success": true,
+  "projectFilePath": "C:\\code\\solarwater\\service\\service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shitw\\.nuget\\packages\\mqttnet\\4.2.0.706\\mqttnet.4.2.0.706.nupkg.sha512",
+    "C:\\Users\\shitw\\.nuget\\packages\\mqttnet.extensions.managedclient\\4.2.0.706\\mqttnet.extensions.managedclient.4.2.0.706.nupkg.sha512",
+    "C:\\Users\\shitw\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.12\\microsoft.windowsdesktop.app.ref.6.0.12.nupkg.sha512",
+    "C:\\Users\\shitw\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.12\\microsoft.netcore.app.ref.6.0.12.nupkg.sha512",
+    "C:\\Users\\shitw\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.12\\microsoft.aspnetcore.app.ref.6.0.12.nupkg.sha512",
+    "C:\\Users\\shitw\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.12\\microsoft.netcore.app.host.win-x64.6.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
