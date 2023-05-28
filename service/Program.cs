@@ -21,7 +21,7 @@ internal class Program
 
         // Create client options object
         MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
-                                                .WithClientId("arduinoRelay")
+                                                .WithClientId("arduinoRelay2")
                                                 .WithTcpServer("192.168.1.79");
         ManagedMqttClientOptions options = new ManagedMqttClientOptionsBuilder()
                                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
