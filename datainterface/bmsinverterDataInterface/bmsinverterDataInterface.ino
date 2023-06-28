@@ -93,12 +93,14 @@ _nextCommandNeeded="QPIGS";
   
 delay(100);
 Serial1.setTimeout(500); 
+Serial1.read(); 
    String incomingString = Serial1.readStringUntil('\r');
 Serial.println(incomingString );
     int counter = 0;
     int len = incomingString.length();
     String command ="";
     for(int i=0;i<len;i++){
+      if(counter>13) continue;
       if(incomingString[i]==' '){
       Serial.print("counter: ");
         Serial.print(counter);
@@ -112,15 +114,7 @@ Serial.println(incomingString );
         //Serial.println(incomingString[i]);
         command +=incomingString[i];
         }
-  
-    }
-
-       Serial.print("counter: ");
-        Serial.print(counter);
-        Serial.print(" command: ");
-        Serial.print(results[counter]);
-        Serial.print(" value: ");
-      Serial.println(command);
+      }    
 }
 
 
