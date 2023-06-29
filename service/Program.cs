@@ -14,15 +14,39 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+               Console.WriteLine("Hello, World!");
+var topicList = new List<string>() { "gridVoltage",        
+  "gridFrequency",      //1
+  "outputVoltage",      //2
+  "outputFrequency",    //3
+  "outputPowerApparent",//4
+  "outputPowerActive",  //5
+  "outputLoadPercent",  //6
+  "busVoltage",         //7
+  "batteryVoltage",//8
+  "batteryChargingCurrent",//9
+  "batteryCapacity",//10
+  "temperature",//11
+  "pvBatteryCurrent",//12
+  "pvInputVoltage",//13
+  };
+        // Create the client object
+        IManagedMqttClient _mqttClient = new MqttFactory().CreateManagedMqttClient();
+
+        // Create client options object
+        var clientid ="arduinoRelay";
+        var ip ="192.168.1.99";
+        System.Console.WriteLine(clientid);
+        System.Console.WriteLine(ip);
+
 
         // Create the client object
         IManagedMqttClient _mqttClient = new MqttFactory().CreateManagedMqttClient();
 
         // Create client options object
         MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
-                                                .WithClientId("arduinoRelay")
-                                                .WithTcpServer("192.168.1.79");
+                                                .WithClientId(clientid)
+                                                .WithTcpServer(ip);
         ManagedMqttClientOptions options = new ManagedMqttClientOptionsBuilder()
                                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
                                 .WithClientOptions(builder.Build())
@@ -56,10 +80,20 @@ internal class Program
                 string returnData = Encoding.ASCII.GetString(receiveBytes);
                 if (!string.IsNullOrEmpty(returnData))
                 {
-                    var msg = DateTime.Now.ToString("HH:mm:ss.fffff") + " : " + returnData.ToString();
+
+var lines = returnData.Split(
+    new string[] { "\r\n", "\r", "\n" },
+    StringSplitOptions.None
+);
+
+foreach(var l in lines)
+{
+
+
+var msg = DateTime.Now.ToString("HH:mm:ss.fffff") + " : " + l.ToString();
                     Console.Write(msg);
-                    var split = returnData.Split(':');
-                    File.AppendAllText(path, msg);
+                    var split = l.Split(':');
+                    //File.AppendAllText(path, msg);
 
                     try
                     {
@@ -88,6 +122,10 @@ internal class Program
                         Console.WriteLine(u.Message
                             );
                     }
+
+}
+
+                    
                 }
             }
             catch (Exception e)
