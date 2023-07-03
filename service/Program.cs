@@ -97,7 +97,7 @@ var msg = DateTime.Now.ToString("HH:mm:ss.fffff") + " : " + l.ToString();
 
                     try
                     {
-                        await _mqttClient.EnqueueAsync($"homeassistant/sensor/greg_{split[0]}", split[1].TrimEnd('0'));
+                        await _mqttClient.EnqueueAsync($"homeassistant/sensor/greg_{split[0]}", split[1]);
 
                         if (DateTime.UtcNow > lastConfigSent.AddSeconds(300))
                         {
