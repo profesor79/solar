@@ -84,23 +84,39 @@ void loop() {
 }
 
 void ProcessSerial1Data(){
+  float u_13=0;
+  float i_12=0;
    int counter = 0;
     int len = inputString.length();
     String command ="";
     for(int i=0;i<len;i++){
       if(counter>13) continue;
       if(inputString[i]==' '){
+        
        String buffer=results[counter];
        buffer+=":";
        buffer+=command;
-       buffer+="\r\n";
-    
-        Serial.print(results[counter]);
-        Serial.print(":");
+       buffer+="\r\n";    
+       Serial.print(results[counter]);
+       Serial.print(":");        
+       Serial.println(command);        
+       if(counter==12)
+       {
+        i_12 = command.toFloat();
+        }
+
+      if(counter==13)
+       {
+        u_13 = command.toFloat();
+
+        float pvW = u_13*i_12;
+       Serial.print("PvPower:");
+           
+       Serial.println(pvW);        
         
-        Serial.println(command);        
+        }
       
-      delay(20);
+      
 
 
       command ="";

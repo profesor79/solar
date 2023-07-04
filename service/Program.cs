@@ -16,6 +16,9 @@ internal class Program
     {
                Console.WriteLine("Hello, World!");
 var topicList = new List<string>() { "gridVoltage",        
+
+"PvPower",
+
   "gridFrequency",      //1
   "outputVoltage",      //2
   "outputFrequency",    //3
@@ -31,7 +34,7 @@ var topicList = new List<string>() { "gridVoltage",
   "pvInputVoltage",//13
   };
         // Create the client object
-        IManagedMqttClient _mqttClient = new MqttFactory().CreateManagedMqttClient();
+//        IManagedMqttClient _mqttClient = new MqttFactory().CreateManagedMqttClient();
 
         // Create client options object
         var clientid ="arduinoRelay";
