@@ -103,19 +103,12 @@ var msg = DateTime.Now.ToString("HH:mm:ss.fffff") + " : " + l.ToString();
                         await _mqttClient.EnqueueAsync($"homeassistant/sensor/greg_{split[0]}", split[1]);
 
                         if (DateTime.UtcNow > lastConfigSent.AddSeconds(300))
-                        {
-                            await publishConfigAsync("WaterTank");
-                            await publishConfigAsync("Tank2Pump");
-                            await publishConfigAsync("ReturnToTank");
-                            await publishConfigAsync("RoofZone1");
-                            await publishConfigAsync("RoofZone2");
-                            await publishConfigAsync("TemperatureDiff");
-                            await publishConfigAsync("WaterPump", true);
-                            await publishConfigAsync("SolarPump", true);
-                            await publishConfigAsync("SolarPumpPowerOn", true);
-                            await publishConfigAsync("SystemPowerOn", true);
-                            await publishConfigAsync("WaterPumpPowerOn", true);
-
+                        {                            
+                            foreach(var item in topicList)
+                            {
+                                await publishConfigAsync(item);
+                            }
+                            
                             lastConfigSent = DateTime.UtcNow;
                         }
                     }
