@@ -1,3 +1,4 @@
+
 String results[25] = {
   "gridVoltage",        
   "gridFrequency",      //1
@@ -48,7 +49,8 @@ void setup() {
   Serial1.begin(2400);
   Serial.println("starting");
     // reserve 200 bytes for the inputString:
-  inputString.reserve(200);
+  inputString.reserve(200);  
+
 
 }
 
@@ -67,13 +69,15 @@ void serialEvent1() {
     }
   }
 }
+ 
 
 void loop() {
   // put your main code here, to run repeatedly:
   currentMillis = millis();  // capture the latest value of millis()
   if(currentMillis-_lastCheckTime>CheckInterval){
+     _lastCheckTime=currentMillis; 
     qpigs();
-    _lastCheckTime=currentMillis;
+      
     }
   if (stringComplete) {
    ProcessSerial1Data();
@@ -106,19 +110,13 @@ void ProcessSerial1Data(){
         }
 
       if(counter==13)
-       {
+      {
         u_13 = command.toFloat();
-
-        float pvW = u_13*i_12;
-       Serial.print("PvPower:");
-           
-       Serial.println(pvW);        
-        
-        }
+        long pvW = (long)u_13*i_12 + 0.5;
+        Serial.print("PvPower:");
+        Serial.println(pvW);                
+      }
       
-      
-
-
       command ="";
       counter++;
       }else{
